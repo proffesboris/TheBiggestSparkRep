@@ -1,0 +1,151 @@
+﻿--START DynSQL 1 Динамическая генерация части основного скрипта по справочнику features
+INVALIDATE METADATA t_team_k7m_aux_p.dict_bo_features;
+SELECT
+CASE TYPE_NAME 
+WHEN 'вещественная' THEN 
+    CASE when EKS_FLD is null or TRIM(EKS_FLD)='' then '' ELSE CONCAT('T_EKS.',feature_cd,'>=T_BO.',feature_cd,'_L AND T_EKS.',feature_cd,'<=T_BO.',feature_cd,'_U AND ') END
+WHEN 'категориальная' THEN
+    CASE when EKS_FLD is null or TRIM(EKS_FLD)='' then '' ELSE CONCAT('T_EKS.',feature_cd,'=T_BO.',feature_cd,' AND ') END
+END AS SQL_TXT
+ FROM t_team_k7m_aux_p.dict_bo_features 
+ ORDER BY feature_id
+--END DynSQL 1
+
+--Основной скрипт, шаг 1, вписываем договора ЕКС в кубы BO
+DROP TABLE IF EXISTS t_team_k7m_aux_p.BBO_STG_01_00;
+CREATE TABLE  t_team_k7m_aux_p.BBO_STG_01_00 as
+WITH T_EKS as ( --Собираем витрину ЕКС со всеми фичами, по 10 договоров каждого клиента
+SELECT * FROM (
+select 
+CL.U7M_ID as U7M_ID
+--,CL.inn as INN --Для отладки
+,pr_cred_id --Для отладки
+,c_date_ending as SORT_DATE -- date_close
+--,DENSE_RANK() OVER (Partition by INN order by c_date_ending ASC) AS RNK
+,(ROW_NUMBER() OVER 
+(Partition by C.INN order by ABS(DATEdiff(C.c_date_ending,current_timestamp())) ASC)) as RN --для отсечки 10 договоров по каждому клиенту
+,ROUND(1.1-0.1*(DENSE_RANK() OVER
+(Partition by C.INN order by ABS(DATEdiff(C.c_date_ending,current_timestamp())) ASC)
+),2) as BO_Q_ADD
+,ROUND(NVL(dur_in_days,0)/30) as DUR 						--1. DUR длительность в месяцах
+,summa_base/1000 as EXP 							--2. EXP отношение объема обязательства к выручке (в BO уже посчитаны границы обязательства, т.е. в этом поле объем обязательства в тыс. руб.)
+,CASE 
+WHEN cred_flag=1 or  nkl_flag=1 then case when dur_in_days=0 then null else (avp_in_days/dur_in_days) END 
+WHEN vkl_flag=1 or over_flag=1 then 1 ELSE NULL END as AVP 	--3. период доступности / длительность (dur_in_days/avp_in_days)
+,CASE 
+WHEN cred_flag=1 or  nkl_flag=1 then case when dur_in_days=0 then null else (avp_in_days/dur_in_days) END 
+WHEN vkl_flag=1 or over_flag=1 then 1 ELSE NULL END as PRIV 	--4. льготный период / длительность (временно = AVP)
+,CASE 
+WHEN cred_flag=1 or  nkl_flag=1 then case when dur_in_days=0 then null else (avp_in_days/dur_in_days) END 
+WHEN vkl_flag=1 or over_flag=1 then 1 ELSE NULL END as BALLOON --5. Объем баллона / объем обязательства (временно = AVP)
+,summa_currency as CURRENCY							--6. Валюта обязательства
+,CASE instrument 
+WHEN 'ОВЕР' THEN 	'1-M813DK'
+WHEN 'КД/НКЛ/ВКЛ' THEN 	'1-M813EC'
+ELSE NULL END as PRODUCT 							--7. Продукт обязательства
+,CASE
+WHEN cred_flag=1 then 'Credit Contract'
+WHEN nkl_flag=1 then 'NKL'	
+WHEN vkl_flag=1 then 'VKL'	
+WHEN over_flag=1 then 'Contract Credit Overdraft'
+ELSE NULL END as CREDIT_MODE 		                --8. Режим обязательства
+,'01' as TARGET_GR								   --9. Цель предоставления (Временно константа 01)
+,0 as PD									       --10. Рейтинг контрагента (Временно константа 0, попадает в любой куб по настройке справочника features)
+,0 as LGD								    	   --11. LGD по обязательству (Временно константа 0, попадает в любой куб по настройке справочника features)
+,'Credit' as CREDIT_INSTRUMENT                     --12. Инструмент кредитования (по продукту) (Временно константа 0, попадает в любой куб по настройке справочника features)
+from t_team_k7m_aux_p.set_cred_active C, t_team_k7m_pa_d.CLU CL --Соединяем с CLU через ИНН (Отсечка лишних + U7M_ID)
+where 
+CL.flag_basis_client='Y' --Только клиенты из базиса
+and C.inn=CL.inn
+--and AVP_in_days is not null --временно т.к. много договоров с пустым полем
+--and C.c_date_ending>date_sub(current_timestamp(),30) --убираем т.к. нужна история
+--and C.inn is NOT null 
+--and C.inn in (select inn from t_team_k7m_aux_p.DEL_ME_0001) --временный список клиентов для тестов
+) T_EKS WHERE RN<11 --для отсечки 10 договоров по каждому клиенту
+),
+T_BO as ( --ШАГ 2 Собираем BO в горизонтальную структуру
+SELECT BO_ID,U7M_ID 
+,max(case WHEN key='AVP_L' then value_n else null end) as AVP_L
+,max(case WHEN key='AVP_U' then value_n else null end) as AVP_U
+,max(case WHEN key='BALLOON_L' then value_n else null end) as BALLOON_L
+,max(case WHEN key='BALLOON_U' then value_n else null end) as BALLOON_U
+,max(case WHEN key='DUR_L' then value_n else null end) as DUR_L
+,max(case WHEN key='DUR_U' then value_n else null end) as DUR_U
+,max(case WHEN key='EXP_L' then value_n else null end) as EXP_L
+,max(case WHEN key='EXP_U' then value_n else null end) as EXP_U
+,max(case WHEN key='LGD_L' then value_n else null end) as LGD_L
+,max(case WHEN key='LGD_U' then value_n else null end) as LGD_U
+,max(case WHEN key='PD_L' then value_n else null end) as PD_L
+,max(case WHEN key='PD_U' then value_n else null end) as PD_U
+,max(case WHEN key='PRIV_L' then value_n else null end) as PRIV_L
+,max(case WHEN key='PRIV_U' then value_n else null end) as PRIV_U
+,max(case WHEN key='PRODUCT' then value_c else null end) as PRODUCT
+,max(case WHEN key='CREDIT_MODE' then value_c else null end) as CREDIT_MODE
+,max(case WHEN key='TARGET_GR' then value_c else null end) as TARGET_GR
+,max(case WHEN key='CURRENCY' then value_c else null end) as CURRENCY
+,max(case WHEN key='CREDIT_INSTRUMENT' then value_c else null end) as CREDIT_INSTRUMENT
+--,max(case WHEN key='BO_Q_SRC' then value_n else null end) as BO_Q_SRC --убрать т.к. будут далее подключаться  BO без договоров
+FROM t_team_k7m_pa_p.bo
+GROUP BY BO_ID,U7M_ID --LIMIT 10
+) 
+--SELECT * FROM (
+SELECT --
+T_BO.bo_id,
+--T_BO.u7m_id,--T_EKS.u7m_id,
+--T_BO.bo_q_src,
+T_EKS.bo_q_add,
+T_EKS.dur,T_BO.dur_l,T_BO.dur_u,T_EKS.exp,T_BO.exp_l,T_BO.exp_u,T_EKS.avp,T_BO.avp_l,T_BO.avp_u,T_EKS.priv,T_BO.priv_l,T_BO.priv_u,T_EKS.balloon,T_BO.balloon_l,T_BO.balloon_u,
+T_BO.currency as BO_CURRENCY,T_EKS.currency,T_BO.product as BO_PRODUCT,T_EKS.product,T_BO.CREDIT_MODE as BO_CREDIT_MODE,T_EKS.CREDIT_MODE,T_BO.target_gr as BO_TARGET_gr,T_EKS.target_gr,
+T_EKS.pd,T_BO.pd_l,T_BO.pd_u,T_EKS.lgd,T_BO.lgd_l,T_BO.lgd_u,T_BO.credit_instrument as BO_Credit_instrument,T_EKS.credit_instrument
+--,T_EKS.inn
+,T_EKS.pr_cred_id
+,T_EKS.rn as EKS_RN,T_EKS.sort_date
+--,ROW_NUMBER() OVER (Partition by T_EKS.pr_cred_id order by T_BO.dur_l,T_BO.dur_u,T_BO.exp_l,T_BO.exp_u,T_BO.avp_l,T_BO.avp_u,T_BO.priv_l,T_BO.priv_u,T_BO.balloon_l,T_BO.balloon_u,T_BO.currency,T_BO.product,T_BO.CREDIT_MODE,T_BO.target_GR,T_BO.pd_l,T_BO.pd_u,T_BO.lgd_l,T_BO.lgd_u,t_bo.CREDIT_INSTRUMENT) as RN --Список фич, для того чтобы однозначно сопоставить каждому договору только один куб BO
+FROM T_BO,T_EKS --Соединяем BO и ЕКС, получаем договора ЕКС и кубы BO, в которые они попадают
+WHERE 
+--Start DynSQL 1 Result
+T_EKS.DUR>=T_BO.DUR_L AND T_EKS.DUR<=T_BO.DUR_U AND 
+T_EKS.EXP>=T_BO.EXP_L AND T_EKS.EXP<=T_BO.EXP_U AND 
+T_EKS.AVP>=T_BO.AVP_L AND T_EKS.AVP<=T_BO.AVP_U AND 
+T_EKS.PRIV>=T_BO.PRIV_L AND T_EKS.PRIV<=T_BO.PRIV_U AND 
+T_EKS.BALLOON>=T_BO.BALLOON_L AND T_EKS.BALLOON<=T_BO.BALLOON_U AND 
+T_EKS.CURRENCY=T_BO.CURRENCY AND 
+T_EKS.PRODUCT=T_BO.PRODUCT AND 
+T_EKS.CREDIT_MODE=T_BO.CREDIT_MODE AND 
+T_EKS.TARGET_GR=T_BO.TARGET_GR AND 
+--END DynSQL 1 Result
+T_EKS.U7M_ID=T_BO.U7M_ID 
+--) T0
+--WHERE RN=1
+;
+
+
+--Основной скрипт, шаг 2 Расчет BO_QUALITY для каждого BO и запись в таблицу BO
+invalidate metadata t_team_k7m_pa_p.bo;
+--select * from t_team_k7m_pa_p.bo
+INSERT INTO t_team_k7m_pa_p.bo 
+select '1111' as exec_id,1111 as okr_id,
+B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,'BO_QUALITY' as KEY,null as VALUE_C
+,cast(b.value_n + NVL(b1.BO_Q_ADD,0) as decimal(16,5)) as VALUE_N 
+,NULL as VALUE_D FROM 
+t_team_k7m_pa_p.bo B 
+LEFT JOIN 
+(SELECT BO_ID,SUM(BO_Q_ADD) as BO_Q_ADD FROM t_team_k7m_aux_p.BBO_STG_01_00 GROUP BY BO_ID) B1
+ON B.BO_ID=B1.BO_ID
+WHERE B.key='BO_Q_SRC';
+
+
+
+--Скрипты отладки  и проверки
+--8719 Всего BO , в которые попали договора ЕКС
+--select count(*) from (SELECT BO_ID,SUM(BO_Q_ADD) as BO_Q_ADD FROM t_team_k7m_aux_p.BBO_STG_01_00 GROUP BY BO_ID) T
+--8719 разбивка на диапазоны и анализ (только для BO в которые попали договора ЕКС)
+--SELECT rnk,count(*),min(v),max(v) FROM (select b1.value_n as v,dense_rank() over (order by round(b1.VALUE_N,1)) as RNK FROM t_team_k7m_pa_p.bo B1 , t_team_k7m_pa_p.bo B2 WHERE B1.key='BO_QUALITY' AND B2.key='BO_Q_SRC' and b1.bo_id=b2.bo_id and b1.value_n<>b2.value_n) T GROUP BY RNK ORDER BY RNK;
+
+--Dev
+--select count(*) from (SELECT BO_ID,SUM(BO_Q_ADD) as BO_Q_ADD FROM t_team_k7m_aux_d.BBO_STG_01_00 GROUP BY BO_ID) T
+--invalidate metadata t_team_k7m_pa_p.bo
+--invalidate metadata t_team_k7m_pa_d.bo
+--refresh t_team_k7m_pa_d.bo
+--SELECT rnk,count(*),min(v),max(v) FROM (select b1.value_n as v,dense_rank() over (order by round(b1.VALUE_N,1)) as RNK FROM t_team_k7m_pa_d.bo B1 , t_team_k7m_pa_d.bo B2 WHERE B1.key='BO_QUALITY' AND B2.key='BO_Q_SRC' and b1.bo_id=b2.bo_id and b1.value_n<>b2.value_n) T GROUP BY RNK ORDER BY RNK;
+--select key,min(cast(bo_id as bigint)),max(cast(bo_id as bigint)),count(*) as CNT from t_team_k7m_pa_p.bo  GROUP BY key;

@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: ru.sberbank.sdcb.k7m.core.pack.SparkMainClass
+

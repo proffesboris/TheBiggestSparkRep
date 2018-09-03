@@ -1,0 +1,91 @@
+---
+name: sub-workflow
+actions:
+  - name: zero_layer
+    type: shellSubmit
+    category: regular
+    jar: zero_layer.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.Main
+    script: sparkSubmit2.sh
+    args: save_schema=custom_cb_k7m_stg source=ODS tables=all schemas=all
+    dependencies: []
+
+  - name: Basis_Transaction_EKS
+    type: shellSubmit
+    category: regular
+    jar: Basis_KSB.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.Main
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer, Basis]
+
+  - name: ACCT
+    type: shellSubmit
+    category: regular
+    jar: acct.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.Main
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer]
+
+  - name: AMRLIRT_BASE
+    type: shellSubmit
+    category: regular
+    jar: amrlirt_base.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.AmrlirtMain
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer] #TODO +CLU
+
+  - name: CRM_BASE
+    type: shellSubmit
+    category: regular
+    jar: crm_base.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.SparkMainClass
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer, km]
+
+  - name: Econ_Links
+    type: shellSubmit
+    category: regular
+    jar: econ_links.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.SparkMainClass
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer]
+
+  - name: Basis
+    type: shellSubmit
+    category: regular
+    jar: basis.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.SparkMainClass
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer]
+
+  - name: Integrum
+    type: shellSubmit
+    category: regular
+    jar: 7min-1.0.0.jar
+    class: IntegrumMainClass
+    script: sparkSubmit.sh
+    dependencies: [zero_layer]
+
+  - name: Pravo
+    type: shellSubmit
+    category: regular
+    jar: 7min-1.0.0.jar
+    class: PravoMainClass
+    script: sparkSubmit.sh
+    dependencies: [zero_layer]
+
+  - name: km
+    type: shellSubmit
+    category: regular
+    jar: km.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.SparkMainClass
+    script: sparkSubmit2.sh
+    dependencies: [zero_layer]
+
+  - name: PDEKSin
+    type: shellSubmit
+    category: regular
+    jar: PDEKSin.jar
+    class: ru.sberbank.sdcb.k7m.core.pack.Main
+    script: sparkSubmit2.sh
+    dependencies: []

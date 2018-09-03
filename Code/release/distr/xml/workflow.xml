@@ -1,0 +1,62 @@
+<workflow-app name="${wf_name}" xmlns="uri:oozie:workflow:0.5">
+
+    <global>
+        <configuration>
+            <property>
+                <name>mapred.job.queue.name</name>
+                <value>${queue}</value>
+            </property>
+        </configuration>
+    </global>
+
+    <start to="ACTION"/>
+    
+    <action name="ACTION">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>wf.sh</exec> 
+            <env-var>my_param=${my_param}</env-var>
+            <env-var>class=${class}</env-var>
+            <env-var>jar=${jar}</env-var>
+            <env-var>entity=${entity}</env-var>
+            <env-var>loading_id=${loading_id}</env-var>
+            <env-var>queue=${queue}</env-var>
+            <env-var>ctl=${ctl}</env-var>
+            <env-var>user=${userName}</env-var>
+            <file>wf.sh#wf.sh</file>
+            <file>${jar}#${jar}</file>
+            <file>/keytab/${userName}.keytab#${userName}.keytab</file>
+        </shell>
+        <ok to="End"/>
+        <error to="Error"/>
+    </action>
+
+    <action name="Error">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>wf.sh</exec>
+            <env-var>my_param=status=FAILED</env-var>
+            <env-var>class=ru.sberbank.sdcb.k7m.core.pack.EtlMain</env-var>
+            <env-var>jar=etlRunner.jar</env-var>
+            <env-var>entity=""</env-var>
+            <env-var>loading_id=""</env-var>
+            <env-var>queue=${queue}</env-var>
+            <env-var>ctl=${ctl}</env-var>
+            <env-var>user=${userName}</env-var>
+            <file>wf.sh#wf.sh</file>
+            <file>etlRunner.jar#etlRunner.jar</file>
+            <file>/keytab/${userName}.keytab#${userName}.keytab</file>
+        </shell>
+        <ok to="Kill_Error"/>
+        <error to="Kill_Error"/>
+    </action>
+
+    <kill name="Kill_Error">
+        <message>Error</message>
+    </kill>
+
+    <end name="End"/>
+
+</workflow-app>

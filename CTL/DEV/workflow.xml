@@ -1,0 +1,118 @@
+<workflow-app name="smart_preapproval_mdb" xmlns="uri:oozie:workflow:0.5">
+
+    <!-- yarnQueue set in the CTL parameters-->
+
+    <global>
+        <configuration>
+            <property>
+                <name>mapred.job.queue.name</name>
+                <value>${yarnQueue}</value>
+            </property>
+        </configuration>
+    </global>
+
+    <start to="Backup"/>
+    
+    <action name="Backup">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Backup.sh</exec> 
+            <argument>${Stg_Path}</argument>
+            <argument>${Pa_Path}</argument>
+            <file>Backup.sh#Backup.sh</file>  
+        </shell>
+        <ok to="Basis"/>
+        <error to="Backup_Fail"/>
+    </action>
+
+    <kill name="Backup_Fail">
+        <message>Backup failed</message>
+    </kill>
+
+    <action name="Basis">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Basis.sh</exec> 
+            <file>Basis.sh#Basis.sh</file> 
+            <file>Basis_KSB.jar#Basis_KSB.jar</file> 
+            <file>u_dc_s_cb_preapproval_mdb.keytab#u_dc_s_cb_preapproval_mdb.keytab</file>
+        </shell>
+        <ok to="Test_if_Empty"/>
+        <error to="Error"/>
+    </action>
+
+    <!-- Five tests on whether tables created by Smart_src_jar are empty -->
+    <action name="Test_if_Empty">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Test_if_Empty.sh</exec> 
+            <argument>${Pa_Path}</argument> 
+            <file>Test_if_Empty.sh#Test_if_Empty.sh</file>
+        </shell>
+        <ok to="Delete_Oldest_Stg"/>
+        <error to="Error"/>
+    </action>
+
+    <!-- In case of error recovers from Backup -->
+    <action name="Error">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Error.sh</exec> 
+            <argument>${Stg_Path}</argument>
+            <argument>${Pa_Path}</argument>
+            <file>Error.sh#Error.sh</file> 
+        </shell>
+        <ok to="Kill_rec_success"/>
+        <error to="Kill_rec_fail"/>
+    </action>
+
+    <kill name="Kill_rec_success">
+        <message>Action failed, Succefully Recovered</message>
+    </kill>
+
+    <kill name="Kill_rec_fail">
+        <message>Action failed, RECOVERY FAILED!!!</message>
+    </kill>
+
+    <!-- Delete oldest Backup -->
+    <action name="Delete_Oldest_Stg">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Delete_Oldest_Stg.sh</exec> 
+            <argument>${Stg_Path}</argument>
+            <file>Delete_Oldest_Stg.sh#Delete_Oldest_Stg.sh</file> 
+        </shell>
+        <ok to="Smart_Src_Save"/>
+        <error to="Backup_Delete_Fail"/>
+    </action>
+
+    <kill name="Backup_Delete_Fail">
+        <message>Failed to delete oldest Backup</message>
+    </kill>
+
+    <!-- Save new version of Smart_src and delete oldest one -->
+    <action name="Smart_Src_Save">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>Smart_Src_Save.sh</exec> 
+            <argument>${Pa_Path}</argument>
+            <file>Smart_Src_Save.sh#Smart_Src_Save.sh</file> 
+            <file>u_dc_s_cb_preapproval_mdb.keytab#u_dc_s_cb_preapproval_mdb.keytab</file> 
+        </shell>
+        <ok to="End"/>
+        <error to="Save_Fail"/>
+    </action>
+
+    <kill name="Save_Fail">
+        <message>Failed to save Smart_Src</message>
+    </kill>
+
+    <end name="End"/>
+
+</workflow-app>

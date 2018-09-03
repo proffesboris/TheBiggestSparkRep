@@ -1,0 +1,83 @@
+---
+name: sub-workflow
+actions:
+  - name: create_table1
+    type: shellSubmit
+    category: regular
+    table_num: "1"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: []
+
+  - name: create_table2
+    type: shellSubmit
+    category: regular
+    table_num: "2"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: []
+
+  - name: create_table3
+    type: shellSubmit
+    category: regular
+    table_num: "3"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: [create_table1, create_table2]
+
+  - name: create_table4
+    type: shellSubmit
+    category: regular
+    table_num: "4"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: [create_table3]
+
+  - name: create_table5
+    type: shellSubmit
+    category: regular
+    table_num: "5"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: []
+
+  - name: create_table6
+    type: shellSubmit
+    category: regular
+    table_num: "6"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: []
+
+  - name: create_table7
+    type: shellSubmit
+    category: regular
+    table_num: "7"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: [create_table5, create_table6]
+
+  - name: create_table9
+    type: shellSubmit
+    category: regular
+    table_num: "9"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: [create_table7]
+
+  - name: create_table10
+    type: shellSubmit
+    category: regular
+    table_num: "10"
+    jar: create_tables.jar
+    class: CreateTable
+    script: sparkSubmit2.sh
+    dependencies: [create_table4, create_table9]

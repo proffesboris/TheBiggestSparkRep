@@ -1,0 +1,38 @@
+### Настройки DevSecOps ###
+### Общая информация о команде ###
+team:
+  - {
+      # код команды в МУСе
+      mus_code: "00150030",
+      # название команды в МУСе
+      mus_name: "ДКК360 - 1",
+      # почтовый адрес Product Owner в МУСе для уведомлений с результатами сканирования. Возможно указание нескольких email через ;
+      mus_po_mail: "Dotsenko.I.S@sberbank.ru;Medvedev.B.An@omega.sbrf.ru;Maksimov.V.Nikol@omega.sbrf.ru;SBT-Maksimov-VN@mail.ca.sbrf.ru",
+    }
+#  - {
+#      # Вторую и последующие команды необходимо добавить по формату, аналогично первой
+#      mus_code: "00040018",
+#      # название команды в МУСе
+#      mus_name: "Web SBOL Design",
+#      # почтовый адрес Product Owner в МУСе для уведомлений с результатами сканирования. Возможно указание нескольких email через ;
+#      mus_po_mail: "sspetrov@sberbank.ru",
+#    }
+### Общая информация о приложении ###
+app:
+  # конфигурационный элемент КЭ приложения / модуля ПО в Service Manager
+  sm_id: "757159"
+  # название КЭ приложения / модуля ПО в Service Manager
+  sm_name: "Облако данных"
+### Настройки SAST Checkmarx ###
+sast_cx:
+  # сredentials id в Jenkins для учетной записи Checkmarx одной команды, под которой будет проводиться сканирование
+  creds_id: "DKK360-1CxCreds"
+  # проектная область в JIRA для заведения и синхронизации дефектов
+  jira_area: "SDCB"
+  # маски файлов и директорий для включения (**/*) в скан и исключения (!**/*) из скана
+  masks: "**/*.java, **/*.scala,**/*.groovy, **/*.py, **/*.html, **/*.css, **/*.less, **/*.js, **/*.jsx, **/*.ts, **/*.jsp, **/*.sql, !**/js/base-libs/**/*, !**/js/libs/**/*, !**/styles/_vendor/**/*, !**/stub/**/*, !**/generated/**/*, !**/node_modules/**/*, !**/build/**/*, !**/target/**/*, !**/src/test/**/*, !**/tests/**/*, !**/.pipeline/**/*, !**/_cvs/**/*, !**/.svn/**/*, !**/.hg/**/*, !**/.git/**/*, !**/.bzr/**/*, !**/bin/**/*, !**/obj/**/*, !**/backup/**/*, !**/.idea/**/*, !**/pom.xml, !**/*.DS_Store, !**/*.gradle, !**/*.ipr, !**/*.iws, !**/*.bak, !**/*.tmp, !**/*.aac, !**/*.aif, !**/*.iff, !**/*.m3u, !**/*.mid, !**/*.mp3, !**/*.mpa, !**/*.ra, !**/*.wav, !**/*.wma, !**/*.3g2, !**/*.3gp, !**/*.asf, !**/*.asx, !**/*.avi, !**/*.flv, !**/*.mov, !**/*.mp4, !**/*.mpg, !**/*.rm, !**/*.swf, !**/*.vob, !**/*.wmv, !**/*.bmp, !**/*.gif, !**/*.jpg, !**/*.png, !**/*.psd, !**/*.tif, !**/*.swf, !**/*.jar, !**/*.zip, !**/*.rar, !**/*.exe, !**/*.dll, !**/*.pdb, !**/*.7z, !**/*.gz, !**/*.tar.gz, !**/*.tar, !**/*.gz, !**/*.ahtm, !**/*.ahtml, !**/*.fhtml, !**/*.hdm, !**/*.hdml, !**/*.hsql, !**/*.ht, !**/*.hta, !**/*.htc, !**/*.htd, !**/*.war, !**/*.ear, !**/*.htmls, !**/*.ihtml, !**/*.mht, !**/*.mhtm, !**/*.mhtml, !**/*.ssi, !**/*.stm, !**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !**/*.sh, !**/*.bat, !Checkmarx/Reports/*.*" 
+  #id профиля сканирования, по умолчанию 36. 14 - для мобильного приложения
+  preset_id: "36"
+  # макс время ожидания статуса QG в минутах
+  wait_qg: "10"
+  ###

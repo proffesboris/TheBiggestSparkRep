@@ -1,0 +1,99 @@
+﻿--BO проверка загруженных справочников
+
+--SELECT * FROM t_team_k7m_aux_p.BO_CHECK_LOG;
+--select * from t_team_k7m_aux_p.bo_config_features_src
+--select * from t_team_k7m_aux_p.dict_bo_features order by feature_id ;
+--SELECT * FROM t_team_k7m_aux_p.bo_config_clusters_src  LIMIT 100
+--select * from t_team_k7m_aux_p.dict_bo_clusters order by clust_id ;
+--SELECT * FROM t_team_k7m_aux_p.dict_BO_cube2cluster  LIMIT 100
+--SELECT * FROM t_team_k7m_aux_p.bo_config_cubes_src LIMIT 100
+--SELECT * FROM t_team_k7m_aux_p.dict_bo_cubes limit 11;
+invalidate metadata t_team_k7m_aux_p.bo_config_features_src;
+invalidate metadata t_team_k7m_aux_p.bo_config_clusters_src;
+invalidate metadata t_team_k7m_aux_p.bo_config_cubes_src;
+invalidate metadata t_team_k7m_aux_p.bo_config_clusters_src;
+invalidate metadata t_team_k7m_aux_p.dict_bo_features;
+invalidate metadata t_team_k7m_aux_p.dict_bo_cubes;
+invalidate metadata t_team_k7m_aux_p.dict_bo_cube2cluster;
+invalidate metadata t_team_k7m_aux_p.dict_bo_clusters;
+
+--1. Сверка количества записей в исходных таблицах (сформированы из загруженных файлов) и в целевых справочниках. Дополнительно требуется сверить количество загруженных записей с полученным xlsx файлом.
+drop table if exists t_team_k7m_aux_p.BO_CHECK_LOG;
+create table t_team_k7m_aux_p.BO_CHECK_LOG as
+select
+CURRENT_TIMESTAMP() as ts 
+,'features' as dict_name
+,concat(cast(cnt_src as string),' rows in source table. ',cast(cnt_tgt as string),' rows in target table!') as res
+,case when cnt_src=cnt_tgt then 'OK'
+when cnt_src=0 then '0 rows in source table'
+when cnt_src!=cnt_tgt then concat('ERROR! ',cast(cnt_src as string),' rows in source table <> ',cast(cnt_tgt as string),' rows in target table!')
+end as check_txt
+from (select count(*) cnt_src from t_team_k7m_aux_p.bo_config_features_src) src,(select count(*) cnt_tgt from t_team_k7m_aux_p.dict_bo_features) tgt;
+
+invalidate metadata t_team_k7m_aux_p.BO_CHECK_LOG;
+
+insert into t_team_k7m_aux_p.BO_CHECK_LOG
+select 
+CURRENT_TIMESTAMP() as ts 
+,'clusters' as dict_name
+,concat(cast(cnt_src as string),' rows in source table. ',cast(cnt_tgt as string),' rows in target table!') as res
+,case when cnt_src=cnt_tgt then 'OK'
+when cnt_src=0 then '0 rows in source table'
+when cnt_src!=cnt_tgt then concat('ERROR!',cast(cnt_src as string),' rows in source table <> ',cast(cnt_tgt as string),' rows in target table!')
+end as check_txt
+from (select count(*) cnt_src from t_team_k7m_aux_p.bo_config_clusters_src) src,(select count(*) cnt_tgt from t_team_k7m_aux_p.dict_BO_cube2cluster) tgt;
+
+insert into t_team_k7m_aux_p.BO_CHECK_LOG
+select
+CURRENT_TIMESTAMP() as ts 
+,'cubes' as dict_name
+,concat(cast(cnt_src as string),' rows in source table. ',cast(cnt_tgt as string),' rows in target table!') as res
+,case when cnt_src=cnt_tgt then 'OK'
+when cnt_src=0 then '0 rows in source table'
+when cnt_src!=cnt_tgt then concat('ERROR!',cast(cnt_src as string),' rows in source table <> ',cast(cnt_tgt as string),' rows in target table!')
+end as check_txt
+from (select count(*) cnt_src from t_team_k7m_aux_p.bo_config_cubes_src) src,(select count(*) cnt_tgt from t_team_k7m_aux_p.dict_bo_cubes) tgt;
+
+--Проверка целостности и корректности данных
+--2. A2 Проверка на определенность кластера	
+--SELECT count(*) as CNT FROM t_team_k7m_aux_p.bo_gen_stg_01_00 where clust_id is null; 
+insert into t_team_k7m_aux_p.BO_CHECK_LOG
+select
+CURRENT_TIMESTAMP() as ts 
+,'cubes2clusters' as dict_name
+,concat(cast(count(*) as string),' rows in cubes without clusters') as res
+,case when count(*)=0 then 'OK'
+when count(*)!=0 then concat('ERROR!',cast(count(*) as string),' rows in cubes without clusters')
+end as check_txt
+from t_team_k7m_aux_p.dict_bo_cubes CUBES
+LEFT join t_team_k7m_aux_p.dict_BO_cube2cluster cc on cc.cube_id = cubes.cube_id
+LEFT join t_team_k7m_aux_p.dict_bo_clusters CLUSTERS on cc.clust_ID = CLUSTERS.clust_ID
+WHERE cc.cube_id is null or CLUSTERS.clust_ID is null or trim(clusters.name)='';
+
+
+--3. A3 Проверка на то, что кубу соответствует только 1 кластер	Проверяем что каждый BO (по таблице BO2CL) принадлежит одному и только одному кластеру из списка Clusters
+insert into t_team_k7m_aux_p.BO_CHECK_LOG
+select 
+CURRENT_TIMESTAMP() as ts 
+,'cubes2clusters' as dict_name
+,concat(cast(count(*) as string),' rows in cubes with more then 1 clusters') as res
+,case when count(*)=0 then 'OK'
+when count(*)!=0 then concat('ERROR!',cast(count(*) as string),' rows in cubes with more then 1 clusters')
+end as check_txt
+FROM (SELECT CUBE_ID,COUNT(*) CNT from t_team_k7m_aux_p.dict_BO_cube2cluster cc GROUP BY CUBE_ID HAVING COUNT(*)<>1) T;
+
+
+--4. Проверка формул в FUNC_DESC !!! желательно также проверить условие: в FUNC_DESC содержатся только такие RESULT.<y> , для которых <y> существует в справочнике features
+insert into t_team_k7m_aux_p.BO_CHECK_LOG 
+select 
+CURRENT_TIMESTAMP() as ts
+,'features' as dict_name
+,concat(cast(count(*) as string),' rows with bad formula in FUNC_DESC (used result.feature that will not be calculated before current feature)') as res
+,case when count(*)=0 then 'OK'
+when count(*)!=0 then concat('ERROR!',cast(count(*) as string),' rows with bad formula in FUNC_DESC (used result.feature that will not be calculated before current feature)')
+end as check_txt
+from t_team_k7m_aux_p.dict_bo_features T1,t_team_k7m_aux_p.dict_bo_features T2
+where t2.func_desc like UPPER(concat('%RESULT.',t1.feature_cd,'%')) and t1.type_name='вещественная'
+and T1.feature_id>=T2.FEATURE_ID;
+
+

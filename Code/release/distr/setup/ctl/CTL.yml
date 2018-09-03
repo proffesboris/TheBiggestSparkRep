@@ -1,0 +1,5993 @@
+entities:
+  - entity:
+      id: 789000331
+      name: "K7M.ZERO_LAYER"
+      path: "{{stgPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000332
+      name: "K7M.BASIS_TRANSACTION_EKS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000333
+      name: "K7M.ACCT"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000334
+      name: "K7M.AMRLIRT_BASE"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000335
+      name: "K7M.CRM_BASE"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000336
+      name: "K7M.ECON_LINKS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000337
+      name: "K7M.BASIS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000338
+      name: "K7M.KM"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000340
+      name: "K7M.ETL_START"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000341
+      name: "K7M.ETL_FINISH"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000342
+      name: "K7M.SBL"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000343
+      name: "K7M.LK"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000345
+      name: "K7M.SET"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000346
+      name: "K7M.CLU"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000348
+      name: "K7M.VDLAW_ROBOT_OUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000349
+      name: "K7M.VDMMZ_OUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000350
+      name: "K7M.BASIS_TRANSACTION_EKS_2"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000351
+      name: "K7M.CLF"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000352
+      name: "K7M.EXSGEN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000353
+      name: "K7M.UL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000354
+      name: "K7M.FOK_BASE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000355
+      name: "K7M.PDFOKIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000358
+      name: "K7M.PROXY_RISK_SEGMENT_STANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000359
+      name: "K7M.PDEKS_STANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000360
+      name: "K7M.INTEGRUM_BASE"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000361
+      name: "K7M.CL_KEYS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000362
+      name: "K7M.PDFOK_STANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000363
+      name: "K7M.REP"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000364
+      name: "K7M.BASIS_TRAN_DELTA_S1"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000365
+      name: "K7M.BASIS_TRAN_KRAS_DELTA"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000366
+      name: "K7M.BASIS_TRAN_DELTA_S2"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000367
+      name: "K7M.SOURCES_CHECK"
+      path: "{{stgPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000368
+      name: "K7M.LK_LKC_RAW"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000369
+      name: "K7M.CRM_ORG_MAJOR"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000370
+      name: "K7M.GSZ_FOR_CRM"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000371
+      name: "K7M.EKS_ID"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000372
+      name: "K7M.BO_PREP"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000373
+      name: "K7M.CHECK1"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000374
+      name: "K7M.LIMITOUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000376
+      name: "K7M.PROXYLGDIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000377
+      name: "K7M.LGDOUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000378
+      name: "K7M.SCORE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000379
+      name: "K7M.PDSTANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000380
+      name: "K7M.GROUPINFLUENCEIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000381
+      name: "K7M.PDOUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000382
+      name: "K7M.SKROFF"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000384
+      name: "K7M.CHECK2"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000385
+      name: "K7M.CHECK3"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000386
+      name: "K7M.CLU_RL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000387
+      name: "K7M.SET_RL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000388
+      name: "K7M.RDOC"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000389
+      name: "K7M.VDOKROUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000390
+      name: "K7M.VDCRMOUT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000391
+      name: "K7M.BASIS_TRAN2_DELTA_S1"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000392
+      name: "K7M.BASIS_TRAN2_KRAS_DELTA"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000393
+      name: "K7M.BASIS_TRAN2_DELTA_S2"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000394
+      name: "K7M.PDPRAVO_STANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000395
+      name: "K7M.PDINTEGRUM_STANDALONE"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000396
+      name: "K7M.WAIT1"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000397
+      name: "K7M.WAIT2"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000398
+      name: "K7M.WAIT3"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000399
+      name: "K7M.WAIT4"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000400
+      name: "K7M.PLAN_LIAB"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000401
+      name: "K7M.BBO"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000402
+      name: "K7M.EIOGEN_EKS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000403
+      name: "K7M.RS_INT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000404
+      name: "K7M.LIMITIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000405
+      name: "K7M.STG_RL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000406
+      name: "K7M.STG_MMZ"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000407
+      name: "K7M.CLU_MMZ"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000408
+      name: "K7M.BO1"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000409
+      name: "K7M.BO2"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000410
+      name: "K7M.BO_GEN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000411
+      name: "K7M.PDPRAVOIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000412
+      name: "K7M.PDINTEGRUMIN"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000413
+      name: "K7M.BO_FINAL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000414
+      name: "K7M.DICTIONARY_LOAD"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000415
+      name: "K7M.PROXY_RISK_SEGMENT_STANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000416
+      name: "K7M.PDEKS_STANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000417
+      name: "K7M.PDFOK_STANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000418
+      name: "K7M.BASIS_TRAN_KRAS_DELTA_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000419
+      name: "K7M.LIMITOUT_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000420
+      name: "K7M.LGDOUT_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000421
+      name: "K7M.PDSTANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000422
+      name: "K7M.PDOUT_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000423
+      name: "K7M.BASIS_TRAN2_KRAS_DELTA_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000424
+      name: "K7M.PDPRAVO_STANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000425
+      name: "K7M.PDINTEGRUM_STANDALONE_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000426
+      name: "K7M.BO1_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000427
+      name: "K7M.BO2_REFRESH"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000428
+      name: "K7M.SRC_ODS_CHECK"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000429
+      name: "K7M.STG_ODS"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000430
+      name: "K7M.SRC_RL_CHECK"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000431
+      name: "K7M.SRC_MMZ_CHECK"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000432
+      name: "K7M.VDLAW_ROBOT_OUT_EXPORT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000433
+      name: "K7M.VDMMZ_OUT_EXPORT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000434
+      name: "K7M.VDOKROUT_EXPORT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000435
+      name: "K7M.VDCRMOUT_EXPORT"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000436
+      name: "K7M.BACKUP"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000437
+      name: "K7M.CHECK_COUNTR"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000438
+      name: "K7M.EIOGEN_EGRUL"
+      path: "{{paPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+  - entity:
+      id: 789000439
+      name: "K7M.CTL_KRAS"
+      path: "{{auxPath}}/"
+      storage: "HDFS"
+      parent-id: 0
+workflows:
+    - K7M-ETL_START:
+        name: "K7M-ETL_START"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          cron:
+            expression: "0 10 * * 1"
+            active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} status=RUNNING"
+            - param:
+                name: entity
+                prior_value: 789000340
+            - param:
+                name: jar
+                prior_value: "etlRunner.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.EtlMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-ETL_START"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-SOURCES_CHECK:
+        name: "K7M-SOURCES_CHECK"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000340
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} filePath=/oozie-app/cb/K7M/ node=stg"
+            - param:
+                name: entity
+                prior_value: 789000367
+            - param:
+                name: jar
+                prior_value: "sources_check.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.CheckerMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SOURCES_CHECK"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-ZERO_LAYER:
+        name: "K7M-ZERO_LAYER"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000414
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "tables=all schemas=all node=stg type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000331
+            - param:
+                name: jar
+                prior_value: "zero_layer.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-ZERO_LAYER"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-ACCT:
+        name: "K7M-ACCT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000371
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000333
+            - param:
+                name: jar
+                prior_value: "acc_new.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-ACCT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-AMRLIRT_BASE:
+        name: "K7M-AMRLIRT_BASE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000334
+            - param:
+                name: jar
+                prior_value: "amrlirt_base.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.AmrlirtMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-AMRLIRT_BASE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-BASIS:
+        name: "K7M-BASIS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000354
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000335
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000360
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000369
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000334
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} limit={{limit}}"
+            - param:
+                name: entity
+                prior_value: 789000337
+            - param:
+                name: jar
+                prior_value: "basis.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-ECON_LINKS:
+        name: "K7M-ECON_LINKS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000366
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000336
+            - param:
+                name: jar
+                prior_value: "econ_links.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-ECON_LINKS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-KM:
+        name: "K7M-KM"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000338
+            - param:
+                name: jar
+                prior_value: "km.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-KM"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-BASIS_TRANSACTION_EKS:
+        name: "K7M-BASIS_TRANSACTION_EKS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000337
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} source=basis_client"
+            - param:
+                name: entity
+                prior_value: 789000332
+            - param:
+                name: jar
+                prior_value: "Basis_KSB.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Basis_KSB_Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRANSACTION_EKS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-CRM_BASE:
+        name: "K7M-CRM_BASE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000338
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000335
+            - param:
+                name: jar
+                prior_value: "crm_base.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CRM_BASE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SBL:
+        name: "K7M-SBL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000366
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000342
+            - param:
+                name: jar
+                prior_value: "sbl.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SBL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LK:
+        name: "K7M-LK"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000351
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000361
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=2"
+            - param:
+                name: entity
+                prior_value: 789000343
+            - param:
+                name: jar
+                prior_value: "lk.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.LkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-LK"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CLU:
+        name: "K7M-CLU"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000333
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000346
+            - param:
+                name: jar
+                prior_value: "CLU.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CLU"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LIMITIN:
+        name: "K7M-LIMITIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000404
+            - param:
+                name: jar
+                prior_value: "limitin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.LimitInMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-LIMITIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDLAW_ROBOT_OUT:
+        name: "K7M-VDLAW_ROBOT_OUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000384
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000348
+            - param:
+                name: jar
+                prior_value: "VDLawRobotOut.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDLAW_ROBOT_OUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDMMZ_OUT:
+        name: "K7M-VDMMZ_OUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000384
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000349
+            - param:
+                name: jar
+                prior_value: "VDMMZOut.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDMMZ_OUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRANSACTION_EKS_2:
+        name: "K7M-BASIS_TRANSACTION_EKS_2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} source=clu"
+            - param:
+                name: entity
+                prior_value: 789000350
+            - param:
+                name: jar
+                prior_value: "Basis_KSB.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Basis_KSB_Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRANSACTION_EKS_2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CLF:
+        name: "K7M-CLF"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000396
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000351
+            - param:
+                name: jar
+                prior_value: "CLF.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CLF"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-EXSGEN:
+        name: "K7M-EXSGEN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000337
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000352
+            - param:
+                name: jar
+                prior_value: "exsGen.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.ExsGenMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-EXSGEN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-UL:
+        name: "K7M-UL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000337
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000353
+            - param:
+                name: jar
+                prior_value: "UL.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-UL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-FOK_BASE:
+        name: "K7M-FOK_BASE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000354
+            - param:
+                name: jar
+                prior_value: "fok_base.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-FOK_BASE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDFOKIN:
+        name: "K7M-PDFOKIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=all"
+            - param:
+                name: entity
+                prior_value: 789000355
+            - param:
+                name: jar
+                prior_value: "pdfokin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDFOKIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PROXY_RISK_SEGMENT_STANDALONE:
+        name: "K7M-PROXY_RISK_SEGMENT_STANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000397
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{rsegm}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.clu,{{pa}}.pdintegrumin,{{stg}}.prv_organization,{{stg}}.prv_ref_main_okved,{{pa}}.pdeksin,{{pa}}.pdeksstandalone,{{paPath}}/clu,{{paPath}}/pdintegrumin,{{stgPath}}/prv_organization,{{stgPath}}/prv_ref_main_okved,{{paPath}}/pdeksin,{{paPath}}/pdeksstandalone"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.proxyrisksegmentstandalone,{{pa}}.proxyfactorsrisksegmentstandalone,{{paPath}}/proxyrisksegmentstandalone,{{paPath}}/proxyfactorsrisksegmentstandalone"
+            - param:
+                name: entity
+                prior_value: 789000358
+            - param:
+                name: wf_name
+                prior_value: "K7M-PROXY_RISK_SEGMENT_STANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDEKS_STANDALONE:
+        name: "K7M-PDEKS_STANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000393
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000417
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{pdeks_standalone}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.pdeksin,{{pa}}.clu,{{pa}}.pdintegrumin,{{pa}}.pdfokin"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdeksstandalone,{{pa}}.pdfactorseksstandalone,{{pa}}.pdfactorseksrsrvstandalone"
+            - param:
+                name: entity
+                prior_value: 789000359
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDEKS_STANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-INTEGRUM_BASE:
+        name: "K7M-INTEGRUM_BASE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000360
+            - param:
+                name: jar
+                prior_value: "integrum_base.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.IntegrumMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-INTEGRUM_BASE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CL_KEYS:
+        name: "K7M-CL_KEYS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000368
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000361
+            - param:
+                name: jar
+                prior_value: "cl_keys.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.CLUKeysMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CL_KEYS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDFOK_STANDALONE:
+        name: "K7M-PDFOK_STANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000355
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{fok}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.clu,{{pa}}.pdfokin,{{paPath}}/clu,{{paPath}}/pdfokin"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdfokstandalone,{{pa}}.pdfactorsfokstandalone,{{pa}}.pdfactorsfokrsrvstandalone,{{paPath}}/pdfokstandalone,{{paPath}}/pdfactorsfokstandalone,{{paPath}}/pdfactorsfokrsrvstandalone"
+            - param:
+                name: entity
+                prior_value: 789000362
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDFOK_STANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-REP:
+        name: "K7M-REP"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000398
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000363
+            - param:
+                name: jar
+                prior_value: "rep.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RepMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-REP"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN_DELTA_S1:
+        name: "K7M-BASIS_TRAN_DELTA_S1"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000332
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=Delta source=basis_eks"
+            - param:
+                name: entity
+                prior_value: 789000364
+            - param:
+                name: jar
+                prior_value: "Basis_tran.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.BasisTransactDelta"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN_DELTA_S1"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN_KRAS_DELTA:
+        name: "K7M-BASIS_TRAN_KRAS_DELTA"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000364
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{tr}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{aux}}.basis_transactions_delta"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.basisclasseks"
+            - param:
+                name: entity
+                prior_value: 789000365
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN_KRAS_DELTA"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN_DELTA_S2:
+        name: "K7M-BASIS_TRAN_DELTA_S2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000418
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=HistAndOut source=basis_eks"
+            - param:
+                name: entity
+                prior_value: 789000366
+            - param:
+                name: jar
+                prior_value: "Basis_tran.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.BasisTransactDelta"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN_DELTA_S2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LK_LKC_RAW:
+        name: "K7M-LK_LKC_RAW"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000396
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=1"
+            - param:
+                name: entity
+                prior_value: 789000368
+            - param:
+                name: jar
+                prior_value: "lk.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.LkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-LK_LKC_RAW"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CRM_ORG_MAJOR:
+        name: "K7M-CRM_ORG_MAJOR"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000338
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000369
+            - param:
+                name: jar
+                prior_value: "crm_org_major.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkCRMmajor"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CRM_ORG_MAJOR"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-GSZ_FOR_CRM:
+        name: "K7M-GSZ_FOR_CRM"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000337
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000370
+            - param:
+                name: jar
+                prior_value: "gsz_for_crm.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-GSZ_FOR_CRM"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-EKS_ID:
+        name: "K7M-EKS_ID"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000343
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000371
+            - param:
+                name: jar
+                prior_value: "eks_id.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-EKS_ID"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO_PREP:
+        name: "K7M-BO_PREP"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000372
+            - param:
+                name: jar
+                prior_value: "bo_prep.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO_PREP"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CHECK1:
+        name: "K7M-CHECK1"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000429
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} check_lvl=1 filePath=/oozie-app/cb/K7M/"
+            - param:
+                name: entity
+                prior_value: 789000373
+            - param:
+                name: jar
+                prior_value: "tests.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CHECK1"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LIMITOUT:
+        name: "K7M-LIMITOUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000397
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{limitout}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.pdeksstandalone,{{pa}}.limitin,{{aux}}.basis_client,{{pa}}.pdeksin"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.limitout"
+            - param:
+                name: entity
+                prior_value: 789000374
+            - param:
+                name: wf_name
+                prior_value: "K7M-LIMITOUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SET:
+        name: "K7M-SET"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000403
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000345
+            - param:
+                name: jar
+                prior_value: "set.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SetMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SET"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PROXYLGDIN:
+        name: "K7M-PROXYLGDIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000415
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000376
+            - param:
+                name: jar
+                prior_value: "ProxyLGDIn.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PROXYLGDIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LGDOUT:
+        name: "K7M-LGDOUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000376
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{lgd}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.proxylgdin"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.lgdout"
+            - param:
+                name: entity
+                prior_value: 789000377
+            - param:
+                name: wf_name
+                prior_value: "K7M-LGDOUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SCORE:
+        name: "K7M-SCORE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000422
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000401
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000376
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000437
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000378
+            - param:
+                name: jar
+                prior_value: "Score.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SCORE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDSTANDALONE:
+        name: "K7M-PDSTANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000397
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{mtx}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.pdeksstandalone,{{pa}}.pdfactorsingmstandalone,{{pa}}.pdfactorsfokstandalone,{{pa}}.pdprvstandalone,{{pa}}.limitin,{{pa}}.clu,{{paPath}}/pdeksstandalone,{{paPath}}/pdfactorsingmstandalone,{{paPath}}/pdfactorsfokstandalone,{{paPath}}/pdprvstandalone,{{paPath}}/limitin,{{paPath}}/clu"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdstandalone,{{paPath}}/pdstandalone"
+            - param:
+                name: entity
+                prior_value: 789000379
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDSTANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-GROUPINFLUENCEIN:
+        name: "K7M-GROUPINFLUENCEIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000421
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000380
+            - param:
+                name: jar
+                prior_value: "GroupInfluenceIn.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-GROUPINFLUENCEIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDOUT:
+        name: "K7M-PDOUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000380
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000419
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000415
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{gsl}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.groupinfluencein,{{pa}}.pdstandalone"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdout,{{pa}}.pdfactorsout,{{pa}}.pdfactorsrsrvout"
+            - param:
+                name: entity
+                prior_value: 789000381
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDOUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SKROFF:
+        name: "K7M-SKROFF"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000378
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000382
+            - param:
+                name: jar
+                prior_value: "skrOff.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SkrOffMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SKROFF"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CHECK2:
+        name: "K7M-CHECK2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000413
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} check_lvl=2"
+            - param:
+                name: entity
+                prior_value: 789000384
+            - param:
+                name: jar
+                prior_value: "tests.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CHECK2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CHECK3:
+        name: "K7M-CHECK3"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000407
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} check_lvl=3"
+            - param:
+                name: entity
+                prior_value: 789000385
+            - param:
+                name: jar
+                prior_value: "tests.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CHECK3"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CLU_RL:
+        name: "K7M-CLU_RL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000405
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000386
+            - param:
+                name: jar
+                prior_value: "rl.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CLU_RL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SET_RL:
+        name: "K7M-SET_RL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000405
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000387
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SET_RL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-RDOC:
+        name: "K7M-RDOC"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000405
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000388
+            - param:
+                name: jar
+                prior_value: "rdoc.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-RDOC"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDOKROUT:
+        name: "K7M-VDOKROUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000385
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000389
+            - param:
+                name: jar
+                prior_value: "VDOKROut.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDOKROUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDCRMOUT:
+        name: "K7M-VDCRMOUT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000389
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000390
+            - param:
+                name: jar
+                prior_value: "VDCRMOut.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDCRMOUT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN2_DELTA_S1:
+        name: "K7M-BASIS_TRAN2_DELTA_S1"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000350
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=Delta source=basis_eks2"
+            - param:
+                name: entity
+                prior_value: 789000391
+            - param:
+                name: jar
+                prior_value: "Basis_tran.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.BasisTransactDelta"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN2_DELTA_S1"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN2_KRAS_DELTA:
+        name: "K7M-BASIS_TRAN2_KRAS_DELTA"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000391
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{tr}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{aux}}.basis_transactions_delta"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.basisclasseks2"
+            - param:
+                name: entity
+                prior_value: 789000392
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN2_KRAS_DELTA"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN2_DELTA_S2:
+        name: "K7M-BASIS_TRAN2_DELTA_S2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000423
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} stageId=HistAndOut source=basis_eks2"
+            - param:
+                name: entity
+                prior_value: 789000393
+            - param:
+                name: jar
+                prior_value: "Basis_tran.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.BasisTransactDelta"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN2_DELTA_S2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDPRAVO_STANDALONE:
+        name: "K7M-PDPRAVO_STANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{prv}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.clu,{{pa}}.pdpravoin,{{stg}}.prv_organization,{{pa}}.pdintegrumin,{{paPath}}/clu,{{paPath}}/pdpravoin,{{stgPath}}/prv_organization,{{paPath}}/pdintegrumin"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdprvstandalone,{{pa}}.pdfactorsprvstandalone,{{pa}}.pdfactorsprvrsrvstandalone,{{paPath}}/pdprvstandalone,{{paPath}}/pdfactorsprvstandalone,{{paPath}}/pdfactorsprvrsrvstandalone"
+            - param:
+                name: entity
+                prior_value: 789000394
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDPRAVO_STANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDINTEGRUM_STANDALONE:
+        name: "K7M-PDINTEGRUM_STANDALONE"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-PIM"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: bmesAddress
+                prior_value: "{{pim}}"
+            - param:
+                name: pmId
+                prior_value: "{{int}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: inputTables
+                prior_value: "{{pa}}.pdintegrumin,{{pa}}.clu,{{paPath}}/pdintegrumin,{{paPath}}/clu"
+            - param:
+                name: outputTables
+                prior_value: "{{pa}}.pdingmstandalone,{{pa}}.pdfactorsingmstandalone,{{pa}}.pdfactorsingmrsrvstandalone,{{paPath}}/pdingmstandalone,{{paPath}}/pdfactorsingmstandalone,pdfactorsingmrsrvstandalone"
+            - param:
+                name: entity
+                prior_value: 789000395
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDINTEGRUM_STANDALONE"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-WAIT1:
+        name: "K7M-WAIT1"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000370
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000342
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000400
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000352
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000353
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000402
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000411
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000412
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000396
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-WAIT1"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-WAIT2:
+        name: "K7M-WAIT2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000373
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000416
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000404
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000427
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000424
+                statisticId: 2
+                active: true
+            - entity:
+                id: 789000425
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000397
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-WAIT2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-WAIT3:
+        name: "K7M-WAIT3"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000384
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000398
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-WAIT3"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-WAIT4:
+        name: "K7M-WAIT4"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000385
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000399
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-WAIT4"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PLAN_LIAB:
+        name: "K7M-PLAN_LIAB"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000336
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000400
+            - param:
+                name: jar
+                prior_value: "Plan_liab.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PLAN_LIAB"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BBO:
+        name: "K7M-BBO"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000345
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000401
+            - param:
+                name: jar
+                prior_value: "BBO.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BBO"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-EIOGEN_EKS:
+        name: "K7M-EIOGEN_EKS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000438
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000402
+            - param:
+                name: jar
+                prior_value: "EksEiogen.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-EIOGEN_EKS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-RS_INT:
+        name: "K7M-RS_INT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000415
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000403
+            - param:
+                name: jar
+                prior_value: "rs_int.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-RS_INT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-STG_RL:
+        name: "K7M-STG_RL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000430
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000405
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-STG_RL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-STG_MMZ:
+        name: "K7M-STG_MMZ"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000398
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "tables=all schemas=all node=mmz_stg type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000406
+            - param:
+                name: jar
+                prior_value: "zero_layer.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-STG_MMZ"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CLU_MMZ:
+        name: "K7M-CLU_MMZ"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000406
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000407
+            - param:
+                name: jar
+                prior_value: "clu_mmz.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CLU_MMZ"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO1:
+        name: "K7M-BO1"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000372
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000408
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO1"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO_GEN:
+        name: "K7M-BO_GEN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000426
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000410
+            - param:
+                name: jar
+                prior_value: "bo_gen.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO_GEN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO2:
+        name: "K7M-BO2"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000410
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000409
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO2"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDPRAVOIN:
+        name: "K7M-PDPRAVOIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000411
+            - param:
+                name: jar
+                prior_value: "pdpravoin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDPRAVOIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDINTEGRUMIN:
+        name: "K7M-PDINTEGRUMIN"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000331
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000412
+            - param:
+                name: jar
+                prior_value: "pdintegrumin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDINTEGRUMIN"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO_FINAL:
+        name: "K7M-BO_FINAL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000382
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000413
+            - param:
+                name: jar
+                prior_value: "bo_final.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO_FINAL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-DICTIONARY_LOAD:
+        name: "K7M-DICTIONARY_LOAD"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000367
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} filePath=/oozie-app/cb/K7M/"
+            - param:
+                name: entity
+                prior_value: 789000414
+            - param:
+                name: jar
+                prior_value: "dictload.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.DictLoadMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-DICTIONARY_LOAD"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PROXY_RISK_SEGMENT_STANDALONE_REFRESH:
+        name: "K7M-PROXY_RISK_SEGMENT_STANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000358
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=rsegm"
+            - param:
+                name: entity
+                prior_value: 789000415
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PROXY_RISK_SEGMENT_STANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDEKS_STANDALONE_REFRESH:
+        name: "K7M-PDEKS_STANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000359
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=tr"
+            - param:
+                name: entity
+                prior_value: 789000416
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDEKS_STANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDFOK_STANDALONE_REFRESH:
+        name: "K7M-PDFOK_STANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000362
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=fok"
+            - param:
+                name: entity
+                prior_value: 789000417
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDFOK_STANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN_KRAS_DELTA_REFRESH:
+        name: "K7M-BASIS_TRAN_KRAS_DELTA_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000365
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=transact"
+            - param:
+                name: entity
+                prior_value: 789000418
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN_KRAS_DELTA_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LIMITOUT_REFRESH:
+        name: "K7M-LIMITOUT_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000374
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=limitout"
+            - param:
+                name: entity
+                prior_value: 789000419
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-LIMITOUT_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-LGDOUT_REFRESH:
+        name: "K7M-LGDOUT_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000377
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=lgd"
+            - param:
+                name: entity
+                prior_value: 789000420
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-LGDOUT_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDSTANDALONE_REFRESH:
+        name: "K7M-PDSTANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000379
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=mtx"
+            - param:
+                name: entity
+                prior_value: 789000421
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDSTANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDOUT_REFRESH:
+        name: "K7M-PDOUT_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000381
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=gsl"
+            - param:
+                name: entity
+                prior_value: 789000422
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDOUT_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BASIS_TRAN2_KRAS_DELTA_REFRESH:
+        name: "K7M-BASIS_TRAN2_KRAS_DELTA_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000392
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=transact2"
+            - param:
+                name: entity
+                prior_value: 789000423
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BASIS_TRAN2_KRAS_DELTA_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDPRAVO_STANDALONE_REFRESH:
+        name: "K7M-PDPRAVO_STANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000394
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=pravo"
+            - param:
+                name: entity
+                prior_value: 789000424
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDPRAVO_STANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-PDINTEGRUM_STANDALONE_REFRESH:
+        name: "K7M-PDINTEGRUM_STANDALONE_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000395
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=integrum"
+            - param:
+                name: entity
+                prior_value: 789000425
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-PDINTEGRUM_STANDALONE_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO1_REFRESH:
+        name: "K7M-BO1_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000408
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=transact"
+            - param:
+                name: entity
+                prior_value: 789000426
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO1_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-BO2_REFRESH:
+        name: "K7M-BO2_REFRESH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000409
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} model=transact"
+            - param:
+                name: entity
+                prior_value: 789000427
+            - param:
+                name: jar
+                prior_value: "refresh.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.RefreshMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BO2_REFRESH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SRC_ODS_CHECK:
+        name: "K7M-SRC_ODS_CHECK"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000346
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} filePath=/oozie-app/cb/K7M/ node=ods_stg"
+            - param:
+                name: entity
+                prior_value: 789000428
+            - param:
+                name: jar
+                prior_value: "sources_check.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.CheckerMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SRC_ODS_CHECK"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-STG_ODS:
+        name: "K7M-STG_ODS"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000428
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "tables=all schemas=all node=ods_stg type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000429
+            - param:
+                name: jar
+                prior_value: "zero_layer.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-STG_ODS"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SRC_RL_CHECK:
+        name: "K7M-SRC_RL_CHECK"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000398
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000430
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SRC_RL_CHECK"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-SRC_MMZ_CHECK:
+        name: "K7M-SRC_MMZ_CHECK"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000398
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000431
+            - param:
+                name: jar
+                prior_value: "PDEKSin.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.Main"
+            - param:
+                name: wf_name
+                prior_value: "K7M-SRC_MMZ_CHECK"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDLAW_ROBOT_OUT_EXPORT:
+        name: "K7M-VDLAW_ROBOT_OUT_EXPORT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000348
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-INT"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: destination_sys
+                prior_value: "rob"
+            - param:
+                name: skip
+                prior_value: "{{skip}}"
+            - param:
+                name: kafkaBroker
+                prior_value: "fada114.cloud.df.sbrf.ru:9092"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: hdfs_path
+                prior_value: "{{paPath}}/export/vdrlout/"
+            - param:
+                name: entity
+                prior_value: 789000432
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDLAW_ROBOT_OUT_EXPORT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDMMZ_OUT_EXPORT:
+        name: "K7M-VDMMZ_OUT_EXPORT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000349
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-INT"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: destination_sys
+                prior_value: "mmz"
+            - param:
+                name: skip
+                prior_value: "{{skip}}"
+            - param:
+                name: kafkaBroker
+                prior_value: "fada114.cloud.df.sbrf.ru:9092"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: hdfs_path
+                prior_value: "{{paPath}}/export/vdmmzout/"
+            - param:
+                name: entity
+                prior_value: 789000433
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDMMZ_OUT_EXPORT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDOKROUT_EXPORT:
+        name: "K7M-VDOKROUT_EXPORT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000389
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-INT"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: destination_sys
+                prior_value: "okr"
+            - param:
+                name: skip
+                prior_value: "{{skip}}"
+            - param:
+                name: kafkaBroker
+                prior_value: "fada114.cloud.df.sbrf.ru:9092"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: hdfs_path
+                prior_value: "{{paPath}}/export/vdokrout/"
+            - param:
+                name: entity
+                prior_value: 789000434
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDOKROUT_EXPORT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-VDCRMOUT_EXPORT:
+        name: "K7M-VDCRMOUT_EXPORT"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000390
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M-INT"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: destination_sys
+                prior_value: "crm"
+            - param:
+                name: skip
+                prior_value: "{{skip}}"
+            - param:
+                name: kafkaBroker
+                prior_value: "fada114.cloud.df.sbrf.ru:9092"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: hdfs_path
+                prior_value: "{{paPath}}/export/vdcrmout/"
+            - param:
+                name: entity
+                prior_value: 789000435
+            - param:
+                name: wf_name
+                prior_value: "K7M-VDCRMOUT_EXPORT"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-CHECK_COUNTR:
+        name: "K7M-CHECK_COUNTR"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000397
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000437
+            - param:
+                name: jar
+                prior_value: "check_countr.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMainClass"
+            - param:
+                name: wf_name
+                prior_value: "K7M-CHECK_COUNTR"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-EIOGEN_EGRUL:
+        name: "K7M-EIOGEN_EGRUL"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000337
+                statisticId: 2
+                active: true
+        init_locks:
+          sets:
+            - set:
+                entity_id: 789000340
+                lock: READ
+                estimate: 5
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000438
+            - param:
+                name: jar
+                prior_value: "EIO_egrul.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.SparkMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-EIOGEN_EGRUL"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule
+    - K7M-ETL_FINISH:
+        name: "K7M-ETL_FINISH"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000390
+                statisticId: 2
+                active: true
+        init_locks:
+          checks:
+            - check:
+                entity_id: 789000340
+                lock: READ
+                lock_group: INIT
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}} status=SUCCESS"
+            - param:
+                name: entity
+                prior_value: 789000341
+            - param:
+                name: jar
+                prior_value: "etlRunner.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.EtlMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-ETL_FINISH"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+          type: on-schedule
+    - K7M-BACKUP:
+        name: "K7M-BACKUP"
+        category: "K7M"
+        type: principal
+        orchestrator: oozie
+        schedule_params:
+          eventAwaitStrategy: "and"
+          entities:
+            - entity:
+                id: 789000341
+                statisticId: 2
+                active: true
+        params:
+            - param:
+                name: oozie.wf.application.path
+                prior_value: "/oozie-app/cb/K7M"
+            - param:
+                name: user.name
+                prior_value: "{{user}}"
+            - param:
+                name: userName
+                prior_value: "{{user}}"
+            - param:
+                name: changeStatId
+                prior_value: 2
+            - param:
+                name: my_param
+                prior_value: "type={{type}}"
+            - param:
+                name: entity
+                prior_value: 789000436
+            - param:
+                name: jar
+                prior_value: "bkp.jar"
+            - param:
+                name: class
+                prior_value: "ru.sberbank.sdcb.k7m.core.pack.BkpMain"
+            - param:
+                name: wf_name
+                prior_value: "K7M-BACKUP"
+            - param:
+                name: queue
+                prior_value: "{{queue}}"
+        schedule:
+              type: on-schedule

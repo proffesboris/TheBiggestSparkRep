@@ -1,0 +1,1 @@
+drop table if exists ${hist_schema}.smart_src_${DELETE_TIME}

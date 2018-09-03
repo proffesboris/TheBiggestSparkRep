@@ -1,0 +1,61 @@
+CREATE DATABASE IF NOT EXISTS custom_cb_k7m_stg location '/data/custom/cb/k7m/stg/';
+CREATE DATABASE IF NOT EXISTS custom_cb_k7m_aux location '/data/custom/cb/k7m/aux/';
+CREATE DATABASE IF NOT EXISTS custom_cb_k7m location '/data/custom/cb/k7m/pa/';
+CREATE DATABASE IF NOT EXISTS custom_cb_k7m_bkp location '/data/custom/cb/k7m/bkp/';
+------------------------------------------------------------------------------------
+CREATE ROLE r_cb_akm_pravo_ro;
+CREATE ROLE r_external_integrum_ro;
+CREATE ROLE r_internal_amrlirt_anamod_sbrflgd_b0_ro;
+CREATE ROLE r_internal_amrlirt_anamod_sbrfsc_b0_ro;
+CREATE ROLE r_internal_crm_cb_siebel_ro;
+CREATE ROLE r_internal_crm_fo_sber1_ro;
+CREATE ROLE r_internal_eks_ibs_ro;
+CREATE ROLE r_internal_tsm_retail_transact_ro;
+CREATE ROLE r_custom_cb_rw;
+CREATE ROLE r_internal_mdm_mdm_ro;
+CREATE ROLE r_cb_akm_integrum_ro;
+CREATE ROLE r_external_fns_ro;
+CREATE ROLE r_internal_rdm_ro;
+CREATE ROLE r_ods_dm_c7m_ro;
+CREATE ROLE r_custom_cb_ro;
+------------------------------------------------------------------------------------
+GRANT ROLE r_cb_akm_pravo_ro TO GROUP g_dc_d_cb_akm_pravo_ro;
+GRANT ROLE r_external_integrum_ro TO GROUP g_dc_d_external_integrum_ro;
+GRANT ROLE r_internal_amrlirt_anamod_sbrflgd_b0_ro TO GROUP g_dc_d_internal_amrlirt_anamod_sbrflgd_b0_ro;
+GRANT ROLE r_internal_amrlirt_anamod_sbrfsc_b0_ro TO GROUP g_dc_d_internal_amrlirt_anamod_sbrfsc_b0_ro;
+GRANT ROLE r_internal_crm_cb_siebel_ro TO GROUP g_dc_d_internal_crm_cb_siebel_ro;
+GRANT ROLE r_internal_crm_fo_sber1_ro TO GROUP g_dc_d_internal_crm_fo_sber1_ro;
+GRANT ROLE r_internal_eks_ibs_ro TO GROUP g_dc_d_internal_eks_ibs_ro;
+GRANT ROLE r_internal_tsm_retail_transact_ro TO GROUP g_dc_d_internal_tsm_retail_transact_ro;
+GRANT ROLE r_custom_cb_rw TO GROUP g_dc_d_custom_cb_rw;
+GRANT ROLE r_cb_akm_integrum_ro TO GROUP g_dc_d_cb_akm_integrum_ro;
+GRANT ROLE r_internal_mdm_mdm_ro TO GROUP g_dc_d_internal_mdm_mdm_ro;
+GRANT ROLE r_external_fns_ro TO GROUP g_dc_d_external_fns_ro;
+GRANT ROLE r_internal_rdm_ro TO GROUP g_dc_d_internal_rdm_ro;
+GRANT ROLE r_ods_dm_c7m_ro TO GROUP g_dc_d_ods_dm_c7m;
+GRANT ROLE r_custom_cb_ro TO GROUP g_dc_d_custom_cb_ro;
+------------------------------------------------------------------------------------
+GRANT SELECT ON DATABASE custom_cb_akm_pravo to role r_cb_akm_pravo_ro;
+GRANT SELECT ON DATABASE custom_cb_akm_integrum to role r_cb_akm_integrum_ro;
+GRANT SELECT ON DATABASE external_integrum to role r_external_integrum_ro;
+GRANT SELECT ON DATABASE internal_amrlirt_anamod_sbrflgd_b0 to role r_internal_amrlirt_anamod_sbrflgd_b0_ro;
+GRANT SELECT ON DATABASE internal_amrlirt_anamod_sbrfsc_b0 to role r_internal_amrlirt_anamod_sbrfsc_b0_ro;
+GRANT SELECT ON DATABASE internal_crm_cb_siebel to role r_internal_crm_cb_siebel_ro;
+GRANT SELECT ON DATABASE internal_crm_fo_sber1 to role r_internal_crm_fo_sber1_ro;
+GRANT SELECT ON DATABASE internal_eks_ibs to role r_internal_eks_ibs_ro;
+GRANT SELECT ON DATABASE internal_tsm_retail_transact to role r_internal_tsm_retail_transact_ro;
+GRANT SELECT ON DATABASE internal_mdm_mdm to role r_internal_mdm_mdm_ro;
+GRANT SELECT ON DATABASE external_fns to role r_external_fns_ro;
+GRANT SELECT ON DATABASE internal_rdm to role r_internal_rdm_ro;
+GRANT SELECT ON DATABASE ods_dm_c7m to role r_ods_dm_c7m_ro;
+GRANT SELECT ON DATABASE custom_cb_k7m to role r_custom_cb_ro;
+------------------------------------------------------------------------------------
+GRANT ALL ON DATABASE custom_cb_k7m_stg to role r_custom_cb_rw;
+GRANT ALL ON DATABASE custom_cb_k7m_aux to role r_custom_cb_rw;
+GRANT ALL ON DATABASE custom_cb_k7m to role r_custom_cb_rw;
+GRANT ALL ON DATABASE custom_cb_k7m_bkp to role r_custom_cb_rw;
+------------------------------------------------------------------------------------
+GRANT ALL ON URI '/data/custom/cb/k7m/stg/' to role r_custom_cb_rw;
+GRANT ALL ON URI '/data/custom/cb/k7m/aux/' to role r_custom_cb_rw;
+GRANT ALL ON URI '/data/custom/cb/k7m/pa/' to role r_custom_cb_rw;
+GRANT ALL ON URI '/data/custom/cb/k7m/bkp/' to role r_custom_cb_rw;

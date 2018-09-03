@@ -1,0 +1,23 @@
+Обратить внимание!
+
+1) Когда все связи будут посчитаны необходимо убрать ИНН, которые попадают в следующий перечень.!
+
+select distinct ul_inn
+from (
+select ul_inn from core_internal_integrum.ul_organization_rosstat
+where ul_okopf_cd in ('2.02.02',--Профсоюзы
+'7.16.01','7.51.04')
+union all
+select org.ul_inn 
+from core_internal_integrum.ul_organization_rosstat org
+    join core_internal_integrum.org_okved_rosstat rst
+    on org.ul_org_id = rst.ul_org_id
+where rst.okvd_okved_cd like '70.32%' or
+    rst.okvd_okved_cd like '68.32%') x
+    
+2) Убрать все связи у которых (from_inn = to_inn)  - проблемы с качеством данных,
+3)Убрать связи, у которых length(to_inn)<>10.
+4)Убрать связи, у которых length(from_inn)not in(10,12).
+5) Убрать связи, у которых '7707083893' in (from_inn,to_inn). Это связи со Сбербанком.
+
+    

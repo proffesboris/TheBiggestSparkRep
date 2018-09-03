@@ -1,0 +1,32 @@
+---
+killName: kill
+killMessage: "Workflow $$name$$ has failed with msg: [${wf:errorMessage(wf:lastErrorNode())}]"
+actionTypes:
+  - tag: spark
+    xmlns: uri:oozie:spark-action:0.2
+    name: sparkSubmit
+    configurationPosition: 2
+    properties: {"testProperty": "testProperty"} #{"testProperty": "testProperty"}
+    defaultArgs: {
+      job-tracker: ["${jobTracker}"],
+      name-node: ["${nameNode}"],
+      master: ["yarn"],
+      name: ["Spark Create Tables Test Application"],
+      class: ["$$class$$"],
+      jar: ["$$jar$$"],
+      #spark-opts: ["--conf spark.network.timeout=10000000 --conf spark.executor.extraJavaOptions=-Xss30m --conf spark.driver.extraJavaOptions=-Xss30m --conf yarn.nodemanager.resource.memory-mb=12000 --deploy-mode cluster --driver-memory 20G --executor-memory 36G --executor-cores 4 --num-executors 48 --verbose"],
+      arg: ["$$table_num$$"],
+      file: ["sbt-medvedev-ba.keytab#sbt-medvedev-ba.keytab", "$$jar$$#$$jar$$"]
+    }
+  - tag: shell
+    xmlns: uri:oozie:shell-action:0.1
+    name: shellSubmit
+    configurationPosition: 2
+    properties: {"testProperty": "testProperty"}
+    defaultArgs: {
+      job-tracker: ["${jobTracker}"],
+      name-node: ["${nameNode}"],
+      exec: ["$$script$$"],
+      argument: ["$$jar$$", "$$class$$", "$$table_num$$"],
+      file: ["sbt-medvedev-ba.keytab#sbt-medvedev-ba.keytab", "$$jar$$#$$jar$$", "$$script$$#$$script$$"]
+    }

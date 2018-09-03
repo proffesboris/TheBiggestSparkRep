@@ -1,0 +1,72 @@
+<workflow-app name="${wf_name}" xmlns="uri:oozie:workflow:0.5">
+
+    <global>
+        <configuration>
+            <property>
+                <name>mapred.job.queue.name</name>
+                <value>${queue}</value>
+            </property>
+        </configuration>
+    </global>
+
+    <start to="SKIP"/>
+
+    <decision name="SKIP">
+        <switch>
+            <case to="End">${skip eq "true"}</case>
+            <default to="COPY_TO_TFS"/>
+        </switch>
+    </decision>
+
+    <action name="COPY_TO_TFS" retry-max="20" retry-interval="1">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>sendtotfs.sh</exec>
+            <env-var>DESTINATION_SYS=${destination_sys}</env-var>
+            <env-var>FOLDERNAME=${destination_sys}</env-var>
+            <env-var>LOCAL_FOLDER=${destination_sys}</env-var>
+            <env-var>HDFS_FOLDER=${hdfs_path}</env-var>
+            <env-var>KAFKA_BROKER=${kafkaBroker}</env-var>
+            <env-var>STAGE=1</env-var>
+            <env-var>entity=${entity}</env-var>
+            <env-var>loading_id=${loading_id}</env-var>
+            <env-var>ctl=${ctl}</env-var>
+            <file>/keytab/${userName}.keytab#${userName}.keytab</file>
+            <file>sendtotfs.sh#sendtotfs.sh</file>
+            <file>integration.jar#integration.jar</file>
+        </shell>
+        <ok to="SEND_MESSAGE"/>
+        <error to="Kill_Error"/>
+    </action>
+
+
+    <action name="SEND_MESSAGE">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>sendtotfs.sh</exec>
+            <env-var>DESTINATION_SYS=${destination_sys}</env-var>
+            <env-var>FOLDERNAME=${destination_sys}</env-var>
+            <env-var>LOCAL_FOLDER=${destination_sys}</env-var>
+            <env-var>HDFS_FOLDER=${hdfs_path}</env-var>
+            <env-var>KAFKA_BROKER=${kafkaBroker}</env-var>
+            <env-var>STAGE=2</env-var>
+            <env-var>entity=${entity}</env-var>
+            <env-var>loading_id=${loading_id}</env-var>
+            <env-var>ctl=${ctl}</env-var>
+            <file>/keytab/${userName}.keytab#${userName}.keytab</file>
+            <file>sendtotfs.sh#sendtotfs.sh</file>
+            <file>integration.jar#integration.jar</file>
+        </shell>
+        <ok to="End"/>
+        <error to="Kill_Error"/>
+    </action>
+
+    <kill name="Kill_Error">
+        <message>Error</message>
+    </kill>
+
+    <end name="End"/>
+
+</workflow-app>

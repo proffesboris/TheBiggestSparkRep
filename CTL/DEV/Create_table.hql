@@ -1,0 +1,1 @@
+create table ${schema}_hist.smart_src_${time} as select * from ${schema}.smart_src

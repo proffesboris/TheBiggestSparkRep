@@ -1,0 +1,105 @@
+﻿--Генерация: SQL 1 (Результат вставить в SQL 3)
+select 
+feature_id,feature_cd,func_desc,
+concat(
+',CASE WHEN UPPER(func_desc) like UPPER(\'%RESULT.'
+,feature_cd
+,'%\') then '
+,'\' LEFT JOIN (select bo_id,value_n as '
+,feature_cd
+,' from t_team_k7m_pa_p.bo where key=\\\''
+,feature_cd
+,'_L\\\') '
+,feature_cd
+,'_L ON '
+,feature_cd
+,'_L.BO_ID=B.BO_ID \''
+,' ELSE \'\' END ')
+from t_team_k7m_aux_p.dict_bo_features where type_name='вещественная' 
+order by feature_id
+
+--Генерация: SQL 2 (Результат вставить в SQL 4)
+select 
+feature_id,feature_cd,func_desc,
+concat(
+',CASE WHEN UPPER(func_desc) like UPPER(\'%RESULT.'
+,feature_cd
+,'%\') then '
+,'\' LEFT JOIN (select bo_id,value_n as '
+,feature_cd
+,' from t_team_k7m_pa_p.bo where key=\\\''
+,feature_cd
+,'_U\\\') '
+,feature_cd
+,'_U ON '
+,feature_cd
+,'_U.BO_ID=B.BO_ID \''
+,' ELSE \'\' END ')
+from t_team_k7m_aux_p.dict_bo_features where type_name='вещественная' 
+order by feature_id
+
+
+--!!! Динамический SQL START!!! 
+--Создается таблица t_team_k7m_aux_p.bo_gen_TMP_SQL с SQL выражениями, после наполнения таблицы требуется выполнить все запросы по очереди или вставить их в основной скрипт BO_GEN. 
+drop table if exists t_team_k7m_aux_p.bo_gen_TMP_SQL;
+CREATE TABLE t_team_k7m_aux_p.bo_gen_TMP_SQL (feature_id BIGINT,SQL_TXT STRING);
+--SELECT * FROM  t_team_k7m_aux_p.bo_gen_TMP_SQL order by feature_id;
+
+--A5 Восстановление фич вещественные, левая граница
+--Вырезано: B.U7M_ID as U7M_ID,
+--Генерация: SQL 3
+INSERT INTO t_team_k7m_aux_p.bo_gen_TMP_SQL
+SELECT feature_id,CONCAT(
+'INSERT INTO t_team_k7m_pa_p.bo select \'1111\' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,\'_L\') as KEY,NULL as VALUE_C,cast('
+,REGEXP_REPLACE(REGEXP_REPLACE(FUNC_DESC,'<X>','C.MIN_VAL'),'RESULT.','')
+,' as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F '
+--START SQL 1 result
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.DUR%') then ' LEFT JOIN (select bo_id,value_n as DUR from t_team_k7m_pa_p.bo where key=\'DUR_L\') DUR_L ON DUR_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.EXP%') then ' LEFT JOIN (select bo_id,value_n as EXP from t_team_k7m_pa_p.bo where key=\'EXP_L\') EXP_L ON EXP_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.AVP%') then ' LEFT JOIN (select bo_id,value_n as AVP from t_team_k7m_pa_p.bo where key=\'AVP_L\') AVP_L ON AVP_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.PRIV%') then ' LEFT JOIN (select bo_id,value_n as PRIV from t_team_k7m_pa_p.bo where key=\'PRIV_L\') PRIV_L ON PRIV_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.BALLOON%') then ' LEFT JOIN (select bo_id,value_n as BALLOON from t_team_k7m_pa_p.bo where key=\'BALLOON_L\') BALLOON_L ON BALLOON_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.PD%') then ' LEFT JOIN (select bo_id,value_n as PD from t_team_k7m_pa_p.bo where key=\'PD_L\') PD_L ON PD_L.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.LGD%') then ' LEFT JOIN (select bo_id,value_n as LGD from t_team_k7m_pa_p.bo where key=\'LGD_L\') LGD_L ON LGD_L.BO_ID=B.BO_ID ' ELSE '' END 
+--END  SQL 1 result
+,' WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd=\'',
+feature_cd --SQL создается для каждой feature т.к. у каждой записи может быть своя формула в FUNC_DESC
+,'\''-- LIMIT 10' --ограничение Временно для тестирования
+,';'
+) FROM t_team_k7m_aux_p.dict_bo_features WHERE TYPE_NAME = 'вещественная';
+
+--A6	Восстановление фич вещественные, правая граница
+--Вырезано: B.U7M_ID as U7M_ID,
+--Генерация: SQL 4
+INSERT INTO t_team_k7m_aux_p.bo_gen_TMP_SQL
+SELECT 1000+feature_id,CONCAT(
+'INSERT INTO t_team_k7m_pa_p.bo select \'1111\' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,\'_U\') as KEY,NULL as VALUE_C,cast('
+,REGEXP_REPLACE(REGEXP_REPLACE(FUNC_DESC,'<X>','C.MAX_VAL'),'RESULT.','')
+,' as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F '
+--START SQL 2 RESULT
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.DUR%') then ' LEFT JOIN (select bo_id,value_n as DUR from t_team_k7m_pa_p.bo where key=\'DUR_U\') DUR_U ON DUR_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.EXP%') then ' LEFT JOIN (select bo_id,value_n as EXP from t_team_k7m_pa_p.bo where key=\'EXP_U\') EXP_U ON EXP_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.AVP%') then ' LEFT JOIN (select bo_id,value_n as AVP from t_team_k7m_pa_p.bo where key=\'AVP_U\') AVP_U ON AVP_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.PRIV%') then ' LEFT JOIN (select bo_id,value_n as PRIV from t_team_k7m_pa_p.bo where key=\'PRIV_U\') PRIV_U ON PRIV_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.BALLOON%') then ' LEFT JOIN (select bo_id,value_n as BALLOON from t_team_k7m_pa_p.bo where key=\'BALLOON_U\') BALLOON_U ON BALLOON_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.PD%') then ' LEFT JOIN (select bo_id,value_n as PD from t_team_k7m_pa_p.bo where key=\'PD_U\') PD_U ON PD_U.BO_ID=B.BO_ID ' ELSE '' END 
+,CASE WHEN UPPER(func_desc) like UPPER('%RESULT.LGD%') then ' LEFT JOIN (select bo_id,value_n as LGD from t_team_k7m_pa_p.bo where key=\'LGD_U\') LGD_U ON LGD_U.BO_ID=B.BO_ID ' ELSE '' END 
+--END  SQL 2 RESULT
+,' WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd=\'',
+feature_cd --SQL создается для каждой feature т.к. у каждой записи может быть своя формула в FUNC_DESC
+,'\''-- LIMIT 10' --ограничение Временно для тестирования
+,';'
+) FROM t_team_k7m_aux_p.dict_bo_features WHERE TYPE_NAME = 'вещественная';
+
+
+--A7	Восстановление фич категориальные	
+--Вырезано: EXTvalues.U7M_ID as U7M_ID, 
+INSERT INTO t_team_k7m_aux_p.bo_gen_TMP_SQL
+SELECT 10000+feature_id,CONCAT(
+'INSERT INTO t_team_k7m_pa_p.bo select \'1111\' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd=\'',
+feature_cd --SQL создается для каждой feature т.к. у каждой записи может быть своя формула в FUNC_DESC
+,'\''-- LIMIT 10' --ограничение Временно для тестирования
+,';'
+) FROM t_team_k7m_aux_p.dict_bo_features WHERE TYPE_NAME = 'категориальная';
+
+--!!! Динамический SQL END!!! ;

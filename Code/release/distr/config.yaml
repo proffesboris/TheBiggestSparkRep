@@ -1,0 +1,16 @@
+-----
+killName: kill
+killMessage: "Workflow $$name$$ has failed with msg: [${wf:errorMessage(wf:lastErrorNode())}]"
+actionTypes:
+  - tag: shell
+    xmlns: uri:oozie:shell-action:0.1
+    name: shellSubmit
+    configurationPosition: 2
+    properties: {"testProperty": "testProperty"}
+    defaultArgs: {
+      job-tracker: ["${jobTracker}"],
+      name-node: ["${nameNode}"],
+      exec: ["$$script$$"],
+      argument: ["$$jar$$", "$$class$$", "$$args$$"],
+      file: ["u_dc_s_k7m.keytab#u_dc_s_k7m.keytab", "$$jar$$#$$jar$$", "$$script$$#$$script$$"]
+    }

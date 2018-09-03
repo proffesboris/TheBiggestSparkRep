@@ -1,0 +1,1 @@
+nohup hive -v -f stg_abs.sql > result_abs.txt 

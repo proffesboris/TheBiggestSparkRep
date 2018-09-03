@@ -1,0 +1,136 @@
+﻿--2.1 BO_PREP
+--Временно отключил отсечку отчетности старше 36 мес.
+
+drop table  if exists t_team_k7m_aux_p.bo_prep;
+
+create table t_team_k7m_aux_p.bo_prep as 
+WITH
+T_FOK00 AS ( --ФОК отчетность 
+select crm_cust_id
+,fin_stmt_year as y
+,fin_stmt_period as p
+--Формируем дату отчетности из года и квартала
+,ADD_MONTHS( -- Добавляем 1 месяц, чтобы получить отчетную дату (конец квартала+1)
+CAST(
+SUBSTR(
+from_unixtime( --Преобразование unix_date в дату
+unix_timestamp( --Преобразование в unix_date по формату
+CONCAT(cast(cast(fin_stmt_year as int) as string),'/',cast(cast(fin_stmt_period*3 as int) as string),'/01') --Строка даты , Period*3 - последний месяц отчетного квартала/года, первое число
+,'yyyy/M/d') 
+),1,10)
+as date)
+,1) as rep_date 
+, Fin_stmt_2110_amt
+FROM t_team_k7m_stg.fok_fin_stmt_rsbu 
+--WHERE CRM_CUST_ID='1-Q5E0X' --для проверки на одном клиенте
+),
+T_FOK0 AS ( -- расчет выручки , скользящее окно за год
+SELECT 
+ b.crm_cust_id
+ ,b.rep_date
+ ,(coalesce(b.fin_stmt_2110_amt, 0) 
+ + coalesce(fc.fin_stmt_2110_amt, 0)
+ - coalesce(c.fin_stmt_2110_amt, 0)) 
+ as rev_y 
+ FROM T_FOK00 b 
+ INNER JOIN T_FOK00 c ON --Переделал с LEFT JOIN на INNER т.к. иначе будут некорректные цифры в случае отсутствия предыдущей отчетности
+( (b.y - 1) = c.y  AND b.p = c.p AND b.crm_cust_id = c.crm_cust_id) --Прошлый год, тот же квартал
+ INNER JOIN T_FOK00 fc on --Переделал с LEFT JOIN на INNER т.к. иначе будут некорректные цифры в случае отсутствия предыдущей отчетности
+( (b.y - 1) = fc.y AND fc.p = 4 AND b.crm_cust_id = fc.crm_cust_id) --Прошлый год 4 квартал (за год)
+--WHERE (c.crm_cust_id is not null and fc.crm_cust_id is not null) or b.p=4 -- расскомментировать и сделать Inner вместо LEFT выше, если все-таки признают расчеты с нехваткой данных по периодам некорректными
+),
+T_FOK as (--Отчетность ФОК + отсечка по базису
+select 
+ b.u7m_id as U7M_id
+--, b.crm_id as CRM_id
+--, b.inn as INN
+, rep_date
+, rev_y
+ from t_team_k7m_pa_d.CLU b --отсечка по базису
+ ,T_FOK0 F
+WHERE b.crm_id=f.crm_cust_id
+and B.flag_basis_client='Y'
+--and (REP_DATE>(DATE_SUB(CURRENT_DATE,36*30))) --Отчетность не старше 36 мес.
+--and Fin_stmt_2110_amt is not null
+),
+T_INT as (--Отчетность Интегрум + отсечка по базису
+select 
+ b.u7m_id as U7M_id
+--, b.crm_id as crm_id
+--, b.inn as INN
+,add_months(CAST(fin_stmt_start_dt as date),12) AS REP_DATE --В исходной таблице строка, обещали переделать, пока заглушка (20180313), по неизвестной причине дата начала периода, прибавляем 12 мес. чтобы получить отчетную дату
+, Fin_stmt_2110_amt as rev_y
+ from t_team_k7m_pa_d.CLU b --отсечка по базису
+  , t_team_k7m_aux_d.INT_fin_stmt_rsbu i
+WHERE b.inn=i.cust_inn_num
+ and B.flag_basis_client='Y'
+ --and (CAST(fin_stmt_start_dt as DATE)>(DATE_SUB(CURRENT_DATE,36*30))) --Отчетность не старше 36 мес.
+-- and Fin_stmt_2110_amt is not null
+),
+MD_FOK as (--Максимальная дата ФОК
+SELECT u7m_id,max(rep_date) as max_rep_date FROM T_FOK GROUP BY u7m_id
+),
+MD_INT as (--Максимальная дата Интегрум
+SELECT u7m_id,max(rep_date) as max_rep_date FROM T_INT GROUP BY u7m_id
+),
+T_SRC as (--Выбор отчетности между ФОК и Интегрум
+SELECT 
+COALESCE(F.u7m_id,I.u7m_id) as u7m_id
+--,COALESCE(F.INN,I.inn) as inn
+,CASE 
+ WHEN F.MAX_REP_DATE IS NOT NULL AND I.MAX_REP_DATE is NOT NULL   --Есть отчетность ФОК и Интегрум, выбираем Макс. дату
+    THEN 
+      CASE WHEN F.MAX_REP_DATE>=I.MAX_REP_DATE THEN 'FOK' ELSE 'INT' END --Выбираем ФОК или Интегрум по макс. дате
+ WHEN F.MAX_REP_DATE IS NOT NULL AND I.MAX_REP_DATE is NULL  --Есть только отчетность ФОК
+    THEN 
+      'FOK'
+ WHEN F.MAX_REP_DATE IS NULL AND I.MAX_REP_DATE is NOT NULL  --Есть только отчетность Интегрум
+    THEN 
+      'INT'
+ ELSE
+      NULL
+END as SRC,
+CASE 
+ WHEN F.MAX_REP_DATE IS NOT NULL AND I.MAX_REP_DATE is NOT NULL   --Есть отчетность ФОК и Интегрум, выбираем Макс. дату
+    THEN 
+      CASE WHEN F.MAX_REP_DATE>=I.MAX_REP_DATE THEN f.max_rep_date ELSE i.max_rep_date END --Выбираем ФОК или Интегрум по макс. дате
+ WHEN F.MAX_REP_DATE IS NOT NULL AND I.MAX_REP_DATE is NULL  --Есть только отчетность ФОК
+    THEN 
+      f.max_rep_date
+ WHEN F.MAX_REP_DATE IS NULL AND I.MAX_REP_DATE is NOT NULL  --Есть только отчетность Интегрум
+    THEN 
+      i.max_rep_date
+  ELSE
+      NULL
+END as MAX_REP_DATE
+FROM MD_FOK F
+FULL JOIN MD_INT I on f.u7m_id=i.u7m_id
+)
+--Сборка конечной таблицы
+SELECT
+T_FOK.u7m_id as u7m_id
+--,T_FOK.crm_id as crm_id
+--,T_FOK.inn as inn
+,T_FOK.rep_date as rep_date
+,T_FOK.rev_y as rev_y
+,t_src.src as SRC
+FROM T_FOK JOIN T_SRC on 
+T_SRC.SRC='FOK' AND T_SRC.u7m_id=T_FOK.u7m_id  AND T_SRC.MAX_REP_DATE=T_FOK.REP_DATE
+UNION ALL
+SELECT
+T_INT.u7m_id as u7m_id
+--,T_INT.crm_id as crm_id
+--,T_INT.inn as inn
+,T_INT.rep_date as rep_date
+,T_INT.rev_y as rev_y
+,t_src.src as SRC
+FROM T_INT JOIN T_SRC on 
+T_SRC.SRC='INT' AND T_SRC.u7m_id=T_INT.u7m_id  AND T_SRC.MAX_REP_DATE=T_INT.REP_DATE;
+
+--select * from t_team_k7m_aux_p.bo_prep LIMIT 10;
+--16500
+--select count(*) from t_team_k7m_aux_p.bo_prep;
+--select u7m_id from t_team_k7m_aux_p.bo_prep group by u7m_id having count(*)>1;
+--select rep_date,src,count(*) as cnt from t_team_k7m_aux_p.bo_prep group by rep_date,src;
+--37986
+--select count(*) from t_team_k7m_pa_d.CLU CL WHERE CL.flag_basis_client='Y' --Только клиенты из базиса;

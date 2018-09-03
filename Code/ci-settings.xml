@@ -1,0 +1,52 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <id>alpha-snapshots</id>
+            <username>pre-approved-kb-build</username>
+            <password>pre-approved-kbbuild</password>
+        </server>
+        <server>
+            <id>alpha-releases</id>
+            <username>pre-approved-kb-build</username>
+            <password>pre-approved-kbbuild</password>
+        </server>
+        <server>
+            <id>alpha-thirdparty</id>
+            <username>pre-approved-kb-build</username>
+            <password>pre-approved-kbbuild</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus.alpha.sbrf.ru</id>
+            <name>Alpha Nexus</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/repositories/central/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+
+        <mirror>
+            <id>nexus.alpha.proxy</id>
+            <name>Alpha Nexus PROXY</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/repositories/repo_spring_proxy/</url>
+            <mirrorOf>proxy</mirrorOf>
+        </mirror>
+
+        <mirror>
+            <id>nexus.pre-approved-kb_group</id>
+            <name>Mirror of pre-approved-kb groupService</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/groups/pre-approved-kb_group/</url>
+            <mirrorOf>pre-approved-kb</mirrorOf>
+        </mirror>
+
+        <mirror>
+            <id>nexus.bigdata-common_group</id>
+            <name>BIGDATA common libraries</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/repositories/Bigdata_release/</url>
+            <mirrorOf>bigdata-common</mirrorOf>
+        </mirror>
+    </mirrors>
+</settings>

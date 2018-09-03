@@ -1,0 +1,43 @@
+﻿--Операция BO_SET , Вставка SET_ID в BO
+--Требует наличия справочника t_team_k7m_aux_p.dict_BO_PD_BY_SCALE (создается при загрузке справочников BO
+--Использует таблицы: t_team_k7m_aux_p.dict_BO_PD_BY_SCALE , t_team_k7m_pa_p.bo , t_team_k7m_aux_p.`set`
+
+INVALIDATE METADATA t_team_k7m_aux_p.dict_BO_PD_BY_SCALE;
+INSERT INTO t_team_k7m_pa_p.bo 
+select B1.exec_id,B1.okr_id,B1.BO_ID as BO_ID,B1.u7m_id as u7m_id,B1.clust_id as clust_id 
+--,B1.key as k1,b2.key as k2,b1.value_n as v1,b2.value_c as v2,s.set_id,s.product,PD_MAX_SET
+,'SET_ID' as KEY,S.set_ID as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D 
+FROM t_team_k7m_pa_p.bo B1,t_team_k7m_pa_p.bo B2, --атрибуты BO - PD_U, PRODUCT
+(SELECT S0.set_id as set_id
+,S0.u7m_b_id as U7M_ID
+,CASE S0.instrument 
+WHEN 'ОВЕР' THEN 	'1-M813DK'
+WHEN 'КД/НКЛ/ВКЛ' THEN 	'1-M813EC'
+ELSE NULL END as PRODUCT 							--7. Продукт обязательства - Аналогично операции BBO
+,SC.PD as PD_MAX_SET
+ FROM t_team_k7m_aux_p.`set` S0,
+ t_team_k7m_aux_p.dict_BO_PD_BY_SCALE SC
+  where s0.max_borrower_rating=SC.sber_raiting 
+ ) S
+where B1.BO_ID=B2.BO_ID AND B1.key='PD_U' AND B2.key='PRODUCT' --атрибуты BO
+AND s.u7m_id=b1.u7m_id AND s.product=b2.value_c --соединяем с SET по U7M_ID и PRODUCT
+and (S.PD_MAX_SET is null or (S.PD_MAX_SET is not null and  b1.value_N<=S.PD_MAX_SET )) --Все остальное не попадет в BO, т.е. SET_ID будет NULL
+--LIMIT 10
+;
+
+
+
+
+--Запросы для отладки
+--SELECT * FROM t_team_k7m_aux_p.dict_BO_PD_BY_SCALE
+--refresh t_team_k7m_pa_p.bo
+--SELECT * FROM t_team_k7m_pa_p.bo_keys limit 10;
+--SELECT count(*) FROM t_team_k7m_pa_p.bo_keys;
+--SELECT count(*) FROM t_team_k7m_aux_p.bo_prep;
+--select * from t_team_k7m_pa_p.bo limit 10;
+--select key,min(cast(bo_id as bigint)),max(cast(bo_id as bigint)),count(*) as CNT from t_team_k7m_pa_p.bo  GROUP BY key;
+--select u7m_id,bo_id,count(*) as CNT from t_team_k7m_pa_p.bo where key='AVP_U' GROUP BY u7m_id,bo_id  having count(*)<>1;
+--SELECT * FROM t_team_k7m_pa_p.bo_keys order by bo_id desc;
+--SELECT u7m_id,count(*) CNT FROM t_team_k7m_pa_p.bo_keys group by u7m_id having cnt<>2588
+--SELECT cube_id,count(*) FROM t_team_k7m_pa_p.bo_keys group by cube_id;
+--SELECT max(cast(bo_id as bigint)) FROM t_team_k7m_pa_p.bo_keys;

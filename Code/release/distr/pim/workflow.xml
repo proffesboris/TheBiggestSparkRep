@@ -1,0 +1,42 @@
+<workflow-app name="${wf_name}" xmlns="uri:oozie:workflow:0.5">
+
+    <global>
+        <configuration>
+            <property>
+                <name>mapred.job.queue.name</name>
+                <value>${queue}</value>
+            </property>
+        </configuration>
+    </global>
+
+    <start to="ACTION"/>
+
+    <action name="ACTION">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>run.sh</exec>
+            <env-var>BMES_ADDRESS=${bmesAddress}</env-var>
+            <env-var>PM_ID=${pmId}</env-var>
+            <env-var>entity=${entity}</env-var>
+            <env-var>loading_id=${loading_id}</env-var>
+            <env-var>USER_NAME=${userName}</env-var>
+            <env-var>INPUT_TABLES=${inputTables}</env-var>
+            <env-var>OUTPUT_TABLES=${outputTables}</env-var>
+            <env-var>QUEUE=${queue}</env-var>
+            <env-var>ctl=${ctl}</env-var>
+            <env-var>user=${userName}</env-var>
+            <file>/keytab/${userName}.keytab#${userName}.keytab</file>
+            <file>run.sh#run.sh</file>
+        </shell>
+        <ok to="End"/>
+        <error to="Kill_Error"/>
+    </action>
+
+    <kill name="Kill_Error">
+        <message>Error</message>
+    </kill>
+
+    <end name="End"/>
+
+</workflow-app>

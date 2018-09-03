@@ -1,0 +1,88 @@
+﻿--Генерация сквозного BO_ID для всех кубов и всех клиентов Базиса
+invalidate metadata t_team_k7m_pa_d.CLU;
+--Создаем таблицу BO_KEYS
+drop table if exists t_team_k7m_pa_p.bo_keys;
+Create table t_team_k7m_pa_p.bo_keys (
+exec_id            string,
+okr_id             bigint,
+bo_id             string,
+u7m_id            string,
+CUBE_ID           bigint,
+clust_id           string
+) stored as parquet;
+invalidate metadata t_team_k7m_pa_p.bo_keys;
+insert into t_team_k7m_pa_p.bo_keys
+SELECT 
+'1111' as exec_id
+,1111 as okr_id
+,CAST(ROW_NUMBER() OVER (order by cube_id) as string) as BO_ID
+,b.u7m_id as u7m_id
+,cc.cube_id as CUBE_ID
+,cl.name as clust_id
+FROM t_team_k7m_pa_d.CLU b CROSS JOIN t_team_k7m_aux_p.dict_BO_cube2cluster cc left join t_team_k7m_aux_p.dict_bo_clusters cl on cc.clust_id=cl.clust_id
+where b.flag_basis_client='Y' --Только клиенты из базиса
+;
+--A5-7
+invalidate metadata t_team_k7m_pa_p.bo_keys;
+invalidate metadata t_team_k7m_aux_p.bo_prep;
+--Создаем таблицу BO
+drop table if exists t_team_k7m_pa_p.bo;
+Create table t_team_k7m_pa_p.bo (
+exec_id           string,
+okr_id            bigint,
+bo_id             string,
+u7m_id            string,
+clust_id          string,
+key               string,
+value_c           string,
+value_n           decimal(16,4),
+value_d           timestamp
+) stored as parquet;
+--Подготовленный список кубов по всем клиентам базиса (BO_KEYS) соединяем с BO_PREP (Клиенты без отчетности отсекаются) + ранее рассчитанные показатели,если есть в формуле FUNC_DESC
+invalidate metadata t_team_k7m_pa_p.bo;
+--DYNSQL START Этот кусок скрипта сформирован из таблицы t_team_k7m_aux_p.bo_gen_TMP_SQL , которую формирует BO_02_bo_gen_DYNSQL_0006.txt
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='DUR';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL*EXTVALUES.Rev_Y as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='EXP';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='AVP';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='PRIV';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='BALLOON';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='PD';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_L') as KEY,NULL as VALUE_C,cast(C.MIN_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='LGD';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='DUR';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL*EXTVALUES.Rev_Y as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='EXP';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='AVP';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='PRIV';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='BALLOON';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='PD';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,CONCAT(F.feature_cd,'_U') as KEY,NULL as VALUE_C,cast(C.MAX_VAL as DECIMAL(16,4)) as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F  WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='LGD';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='CURRENCY';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='PRODUCT';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='CREDIT_MODE';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='TARGET_GR';
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,F.feature_cd as KEY,c.categorial_val as VALUE_C,NULL as VALUE_N ,NULL as VALUE_D from t_team_k7m_pa_p.bo_keys B,t_team_k7m_aux_p.bo_prep EXTvalues ,t_team_k7m_aux_p.dict_bo_cubes C ,t_team_k7m_aux_p.dict_bo_features F WHERE B.u7m_id=EXTvalues.u7m_id and B.cube_id= c.cube_id and C.FEATURE_ID = F.feature_id and F.feature_cd='CREDIT_INSTRUMENT';
+--DYNSQL END
+--BO_OfferExpDate Дата расчета + 8 дней
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,'BO_OfferExpDate' as KEY,null as VALUE_C,null as VALUE_N ,cast(TO_DATE(date_add(current_timestamp(),8)) as timestamp) as VALUE_D FROM t_team_k7m_pa_p.bo_keys B ;
+--BO_Q_SRC (начальный BO_QUALITY из CONFIG)
+INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,'BO_Q_SRC' as KEY,null as VALUE_C,cast(cc.bo_quality as decimal(16,4)) as VALUE_N ,NULL as VALUE_D FROM t_team_k7m_pa_p.bo_keys B inner join t_team_k7m_aux_p.dict_BO_cube2cluster cc on cc.cube_id = B.cube_id;
+--CLUSTER_NAME -- добавлено в горизонтальную структуру
+--INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,'CLUSTER_NAME' as KEY, CLUSTERS.name as VALUE_C,cast(NULL as decimal(16,4)) as VALUE_N ,NULL as VALUE_D FROM t_team_k7m_pa_p.bo_keys B inner join t_team_k7m_aux_p.dict_BO_cube2cluster cc on cc.cube_id = B.cube_id inner join t_team_k7m_aux_p.dict_bo_clusters CLUSTERS on cc.clust_ID = CLUSTERS.clust_ID;
+--U7M_ID  -- добавлено в горизонтальную структуру
+--INSERT INTO t_team_k7m_pa_p.bo select '1111' as exec_id,1111 as okr_id,B.BO_ID as BO_ID,B.u7m_id as u7m_id,b.clust_id as clust_id,'U7M_ID' as KEY, B.U7M_ID as VALUE_C,cast(NULL as decimal(16,4)) as VALUE_N ,NULL as VALUE_D FROM t_team_k7m_pa_p.bo_keys B;
+
+
+--BO_SET(SET_ID) - перенесено в отдельную операцию
+
+
+--Запросы для отладки
+--refresh t_team_k7m_pa_p.bo
+--SELECT * FROM t_team_k7m_pa_p.bo_keys limit 10;
+--SELECT count(*) FROM t_team_k7m_pa_p.bo_keys;
+--SELECT count(*) FROM t_team_k7m_aux_p.bo_prep;
+--select * from t_team_k7m_pa_p.bo limit 10;
+--select key,min(cast(bo_id as bigint)),max(cast(bo_id as bigint)),count(*) as CNT from t_team_k7m_pa_p.bo  GROUP BY key;
+--select u7m_id,bo_id,count(*) as CNT from t_team_k7m_pa_p.bo where key='AVP_U' GROUP BY u7m_id,bo_id  having count(*)<>1;
+--SELECT * FROM t_team_k7m_pa_p.bo_keys order by bo_id desc;
+--SELECT u7m_id,count(*) CNT FROM t_team_k7m_pa_p.bo_keys group by u7m_id having cnt<>2588
+--SELECT cube_id,count(*) FROM t_team_k7m_pa_p.bo_keys group by cube_id;
+--SELECT max(cast(bo_id as bigint)) FROM t_team_k7m_pa_p.bo_keys;

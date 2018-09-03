@@ -1,0 +1,118 @@
+﻿--1. BO SETUP
+--20180507 изменился формат features
+--В этом скрипте создаются и наполняются требуемые для операции BO справочники, 
+--скрипт запускается один раз, далее используется для пересоздания справочников в случае их обновления по требованию Заказчика
+--Настроечные таблицы - Справочники получены от заказчика в формате xlsx с соответствующими листами. Имена колонок должны совпадать. 
+--Для заливки каждый справочник (cubes,features,clusters) требуется сохранить в формате CSV с разделителем ; и кодировкой UTF-8 (открыть CSV с помощью блокнота и сохранить с кодировкой UTF-8)
+--Файлы CSV залить через File Browser в доступную схему (я заливал в sbt-lebedev-aa1)
+--С помощью Python загруженные CSV файлы загружаются в таблицы 
+-- t_team_k7m_aux_p.bo_config_features_src ,  t_team_k7m_aux_p.bo_config_clusters_src , t_team_k7m_aux_p.bo_config_cubes_src 
+--( код в файле BO_CONFIG2TABLES_003.ipynb , схему sbt-lebedev-aa1 в коде заменить на используемую схему, t_team_k7m_aux_p - на целевую схему )
+drop table if exists t_team_k7m_aux_p.dict_bo_features;
+drop table if exists t_team_k7m_aux_p.dict_bo_clusters; 
+drop table if exists t_team_k7m_aux_p.dict_BO_cube2cluster;
+drop table if exists t_team_k7m_aux_p.dict_bo_cubes;
+--1.1. Features (Исходный файл загружается с помощью Python в таблицу t_team_k7m_aux_p.bo_config_features_src )
+--select * from t_team_k7m_aux_p.bo_config_features_src
+--drop table if exists t_team_k7m_aux_p.dict_bo_features;
+create table t_team_k7m_aux_p.dict_bo_features as 
+select
+cast(feature_id as bigint) as feature_id
+,code as  feature_cd
+,name as name
+--,delete as delete_desc
+--,slice as  slice_desc
+,func as func_desc
+,cast(step as double) as step_cnt
+,type as type_name
+,comment as comment_desc
+,eks_fld as eks_fld
+ FROM t_team_k7m_aux_p.bo_config_features_src
+ where cast(feature_id as bigint) is not null
+;
+--select * from t_team_k7m_aux_p.dict_bo_features order by feature_id ;
+--1.2. Clusters
+--В первой версии был отдельный справочник Clusters, для совместимости с остальным кодом формируем его сами
+--drop table if exists t_team_k7m_aux_p.dict_bo_clusters; 
+--SELECT * FROM t_team_k7m_aux_p.bo_config_clusters_src  LIMIT 100
+create table t_team_k7m_aux_p.dict_bo_clusters as 
+select 
+cast(row_number() over () as bigint) as clust_id,
+name
+FROM ( SELECT distinct clust_id as name FROM t_team_k7m_aux_p.bo_config_clusters_src order by clust_id ) T
+;
+--select * from t_team_k7m_aux_p.dict_bo_clusters order by clust_id ;
+--1.3. cube2cluster
+--drop table if exists t_team_k7m_aux_p.dict_BO_cube2cluster;
+--select * from t_team_k7m_aux_p.bo_config_clusters_src  LIMIT 100
+create table t_team_k7m_aux_p.dict_BO_cube2cluster as 
+SELECT  
+cast(c.bo_id as bigint) as cube_id 
+,d.clust_id as clust_id
+,cast(c.bo_quality as decimal(16,4)) as bo_quality
+FROM t_team_k7m_aux_p.bo_config_clusters_src C,
+t_team_k7m_aux_p.dict_bo_clusters D
+where c.clust_id=d.name
+;
+--SELECT * FROM t_team_k7m_aux_p.dict_BO_cube2cluster  LIMIT 100
+--1.4. Cubes
+--DESCRIBE t_team_k7m_aux_p.bo_config_cubes_src
+--SELECT * FROM t_team_k7m_aux_p.bo_config_cubes_src LIMIT 100
+--SELECT feature_id,min(bo_id),max(bo_id),count(*) from t_team_k7m_aux_p.bo_config_cubes_src group by feature_ID
+--drop table if exists t_team_k7m_aux_p.dict_bo_cubes;
+create table t_team_k7m_aux_p.dict_bo_cubes as 
+SELECT 
+cast(c.bo_id as bigint) as cube_ID
+,f.feature_id
+,cast(c.min as decimal(16,4)) as min_val
+,cast(c.max as decimal(16,4)) as max_val
+,case when c.categorial='nan' or trim(c.categorial)='' then null else c.categorial end as categorial_val
+FROM t_team_k7m_aux_p.bo_config_cubes_src C,
+t_team_k7m_aux_p.dict_bo_features F
+WHERE c.feature_id=f.feature_cd ---limit 11
+;
+
+
+--Справочник для определения PD через RATING
+drop table if exists t_team_k7m_aux_p.dict_BO_PD_BY_SCALE;
+--select * from t_team_k7m_aux_p.dict_BO_PD_BY_SCALE;
+create table t_team_k7m_aux_p.dict_BO_PD_BY_SCALE (
+SBER_RAITING TINYINT
+,PD DOUBLE
+,Lower_Bound DOUBLE
+,Upper_Bound DOUBLE
+);
+INSERT INTO t_team_k7m_aux_p.dict_BO_PD_BY_SCALE  
+SELECT 1,0.0002,0,0.00032 UNION ALL
+SELECT 2,0.00037,0.00032,0.00044 UNION ALL
+SELECT 3,0.00051,0.00044,0.0006 UNION ALL
+SELECT 4,0.0007,0.0006,0.00083 UNION ALL
+SELECT 5,0.00097,0.00083,0.00114 UNION ALL
+SELECT 6,0.00133,0.00114,0.00156 UNION ALL
+SELECT 7,0.00184,0.00156,0.00215 UNION ALL
+SELECT 8,0.00253,0.00215,0.00297 UNION ALL
+SELECT 9,0.00348,0.00297,0.00409 UNION ALL
+SELECT 10,0.0048,0.00409,0.00563 UNION ALL
+SELECT 11,0.0066,0.00563,0.00775 UNION ALL
+SELECT 12,0.0091,0.00775,0.01067 UNION ALL
+SELECT 13,0.01253,0.01067,0.0147 UNION ALL
+SELECT 14,0.01725,0.0147,0.02024 UNION ALL
+SELECT 15,0.02375,0.02024,0.02788 UNION ALL
+SELECT 16,0.03271,0.02788,0.03839 UNION ALL
+SELECT 17,0.04505,0.03839,0.05287 UNION ALL
+SELECT 18,0.06204,0.05287,0.0728 UNION ALL
+SELECT 19,0.08543,0.0728,0.10026 UNION ALL
+SELECT 20,0.11765,0.10026,0.13807 UNION ALL
+SELECT 21,0.16203,0.13807,0.19014 UNION ALL
+SELECT 22,0.22313,0.19014,0.26185 UNION ALL
+SELECT 23,0.30728,0.26185,0.36059  UNION ALL
+SELECT 24,0.42316,0.36059,0.49659 UNION ALL
+SELECT 25,0.58275,0.49659,1 UNION ALL
+SELECT 26,1,1,NULL;
+
+
+--SELECT * FROM t_team_k7m_aux_p.dict_bo_cubes limit 11;
+--SELECT count(*) FROM t_team_k7m_aux_p.dict_bo_cubes;
+--SELECT T1.*,T2.feature_cd FROM t_team_k7m_aux_p.dict_bo_cubes T1 LEFT JOIN t_team_k7m_aux_p.dict_bo_features T2 on T1.feature_id=T2.feature_id  limit 11;
+--SELECT T2.feature_cd,min(cube_ID),MAX(cube_ID),count(*) FROM t_team_k7m_aux_p.dict_bo_cubes T1 LEFT JOIN t_team_k7m_aux_p.dict_bo_features T2 on T1.feature_id=T2.feature_id  GROUP BY T2.feature_cd;
+--SELECT count(*) FROM t_team_k7m_aux_p.bo_config_cubes_src; 

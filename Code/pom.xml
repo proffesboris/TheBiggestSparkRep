@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.sberbank.sdcb.k7m.core.pack</groupId>
+    <artifactId>code</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <build_version>${project.version}</build_version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <scala.version>2.11.11</scala.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <spark.version>2.2.0</spark.version>
+        <CodeCacheSize>1024m</CodeCacheSize>
+    </properties>
+
+
+    <repositories>
+        <repository>
+            <id>Mirror of central</id>
+            <name>Mirror of central</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Mirror of central</id>
+            <name>Mirror of central</name>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+  
+    <distributionManagement>
+        <snapshotRepository>
+            <id>alpha-snapshots</id>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/repositories/pre-approved-kb_snapshot/</url>
+        </snapshotRepository>
+        <repository>
+            <id>alpha-releases</id>
+            <url>http://sbtnexus.ca.sbrf.ru:8081/nexus/content/repositories/pre-approved-kb_release/</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>templating-maven-plugin</artifactId>
+                    <version>1.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>filter-src</id>
+                            <goals>
+                                <goal>filter-sources</goal>
+                            </goals>
+                            <configuration>
+                                <!--
+                                  Note the two following parameters are the default one.
+                                  These are specified here just as a reminder.
+                                  But as the Maven philosophy is strongly about conventions,
+                                  it's better to just not specify them.
+                                -->
+                                <sourceDirectory>${basedir}/common/src/main/java-templates</sourceDirectory>
+                                <outputDirectory>${project.build.directory}/generated-sources/java-templates</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                        <appendAssemblyId>false</appendAssemblyId>
+                        <outputDirectory>${project.build.directory}/distr</outputDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                            <phase>package</phase> <!-- append to the packaging phase. -->
+                            <goals>
+                                <goal>single</goal> <!-- goals == mojos -->
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.coderplus.maven.plugins</groupId>
+                    <artifactId>copy-rename-maven-plugin</artifactId>
+                    <version>1.0.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>1.5.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <executions>
+                        <execution>
+                            <id>eclipse-add-source</id>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>scala-compile-first</id>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>scala-test-compile-first</id>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <scalaVersion>${scala.version}</scalaVersion>
+                        <recompileMode>incremental</recompileMode>
+                        <useZincServer>false</useZincServer>
+                        <args>
+                            <arg>-unchecked</arg>
+                            <arg>-deprecation</arg>
+                            <arg>-feature</arg>
+                            <arg>-explaintypes</arg>
+                            <arg>-Yno-adapted-args</arg>
+                        </args>
+                        <jvmArgs>
+                            <jvmArg>-Xms3072m</jvmArg>
+                            <jvmArg>-Xmx3072m</jvmArg>
+                            <jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg>
+                        </jvmArgs>
+                        <javacArgs>
+                            <javacArg>-source</javacArg>
+                            <javacArg>${java.version}</javacArg>
+                            <javacArg>-target</javacArg>
+                            <javacArg>${java.version}</javacArg>
+                            <javacArg>-Xlint:all,-serial,-path,-try</javacArg>
+                        </javacArgs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>jaxb2-maven-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>HiveContext/acc</module>
+        <module>HiveContext/VDCRMOut</module>
+        <module>DataFrame/AMRLIRT_BASE</module>
+        <module>DataFrame/Basis_Transaction_EKS</module>
+        <module>HiveContext/Basis_tran</module>
+        <module>HiveContext/bkp</module>
+        <module>HiveContext/check_countr</module>
+        <module>DataFrame/Zero_Layer</module>
+        <module>DataFrame/Sources_Check</module>
+        <module>HiveContext/Basis</module>
+        <module>HiveContext/cl_keys</module>
+        <module>HiveContext/CLF</module>
+        <module>HiveContext/CLU</module>
+        <module>HiveContext/Score</module>
+        <module>HiveContext/CRM_Base</module>
+        <module>HiveContext/CRM_org_major</module>
+        <module>HiveContext/exsgen</module>
+        <module>HiveContext/fok_base</module>
+        <module>HiveContext/Econ_Links</module>
+        <module>HiveContext/EKS_EIOGEN</module>
+        <module>HiveContext/EKS_ID</module>
+        <module>HiveContext/common</module>
+        <module>HiveContext/gsz_for_crm</module>
+        <module>HiveContext/Integrum_base</module>
+        <module>HiveContext/KM</module>
+        <module>HiveContext/ProxyLGDIn</module>
+        <module>HiveContext/VDLawRobotOut</module>
+        <module>HiveContext/VDMMZOut</module>
+        <module>HiveContext/PDEKSin</module>
+        <module>HiveContext/pdfokin</module>
+        <module>HiveContext/pdintegrumin</module>
+        <module>HiveContext/pdpravoin</module>
+        <module>HiveContext/Plan_liab</module>
+        <module>HiveContext/Proxy_risk_segment</module>
+        <module>HiveContext/REP</module>
+        <module>HiveContext/skroff</module>
+        <module>HiveContext/SBL</module>
+        <module>HiveContext/etlRunner</module>
+        <module>HiveContext/UL</module>
+        <module>HiveContext/Tests</module>
+        <module>HiveContext/bo_gen</module>
+        <module>HiveContext/bo_prep</module>
+        <module>HiveContext/GroupInfluenceIn</module>
+        <module>HiveContext/lk</module>
+        <module>HiveContext/set</module>
+        <module>HiveContext/VDOKROut</module>
+        <module>HiveContext/BBO</module>
+        <module>DataFrame/LIMITIN</module>
+        <module>HiveContext/bo_final</module>
+        <module>HiveContext/pim_refresh</module>
+        <module>HiveContext/RS_INT</module>
+        <module>HiveContext/dictload</module>
+        <module>HiveContext/rl</module>
+        <module>HiveContext/checkCtl</module>
+        <module>HiveContext/CLU_MMZ</module>
+        <module>HiveContext/RDOC</module>
+        <module>HiveContext/integration</module>
+        <module>HiveContext/EIO_egrul</module>
+
+        <!--Новые модули добавляются до модуля release, release должен быть последним!-->
+        <module>release</module>
+    </modules>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>ru.sberbank.sdcb.k7m.core.pack</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>ru.sberbank.sdcb.k7m.core.pack</groupId>
+                <artifactId>zero_layer</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.9.4</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>5.0.6.RELEASE</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.graphstream</groupId>
+                <artifactId>gs-core</artifactId>
+                <version>1.3</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>2.9.4</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>1.5</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>0.10.2.0</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
+
+

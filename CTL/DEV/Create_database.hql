@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS custom_cb_preapproval_mdb location '/data/custom/cb/preapproval_mdb/pa/snp';
+CREATE DATABASE IF NOT EXISTS custom_cb_preapproval_mdb_hist location '/data/custom/cb/preapproval_mdb/pa/hist';

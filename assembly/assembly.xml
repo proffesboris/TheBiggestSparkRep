@@ -1,0 +1,42 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>distribution</id>
+    <formats>
+        <format>tar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>CTL/DEV</directory>
+            <includes>
+                <include>*.sh</include>
+                <include>*.xml</include>
+                <include>*.hql</include>
+                <include>*.yml</include>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>smartKSB</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>CTL/DEV/BasisKSB/target/scala-2.11</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>smartKSB</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>CTL/DEV/CreateTable/target/scala-2.11</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>smartKSB</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>CTL/DEV/DeleteTable/target/scala-2.11</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>smartKSB</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
